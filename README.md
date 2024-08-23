@@ -1,6 +1,7 @@
 Nome
 
 Descrição: 
+
 O aplicativo visa contribuir para o Objetivo de Desenvolvimento Sustentável 6 (ODS 6) - Água Potável e Saneamento ao fornecer uma plataforma interativa e acessível para o monitoramento da qualidade da água e do saneamento básico nas comunidades.
 
 Equipe:
