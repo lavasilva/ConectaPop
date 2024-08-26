@@ -2,7 +2,7 @@ ConectaPop
 
 Descrição: 
 
-O aplicativo visa contribuir para o Objetivo de Desenvolvimento Sustentável 6 (ODS 6) - Água Potável e Saneamento ao fornecer uma plataforma interativa e acessível para o monitoramento da qualidade da água e do saneamento básico nas comunidades.
+O aplicativo visa contribuir para o Objetivo de Desenvolvimento Sustentável 9 (ODS 9) - Indústria, Inovação e Infraestrutura ao fornecer uma plataforma interativa e acessível para o monitoramento das reformas e mudanças das estruturas das comunidades.
 
 Equipe:
 
