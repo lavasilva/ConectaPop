@@ -1,26 +1,10 @@
 ConectaPop
 
-1.História bem definidas:
-
-2.Criação de protótipo de Lo-Fi:
-
-3.Screencast(link protótipo + descrição):
-
-4.Documentação:
-
-5.Print do quadro e do Backlog:
-
-6.Deployment das histórias:
-
-7.Quadro da Sprint 01:
-
-
-
-Descrição: 
+__Descrição:__
 
 O aplicativo visa contribuir para o Objetivo de Desenvolvimento Sustentável 9 (ODS 9) - Indústria, Inovação e Infraestrutura ao fornecer uma plataforma interativa e acessível para o monitoramento das reformas e mudanças das estruturas das comunidades.
 
-Equipe:
+__Equipe:__
 
 Bruno Assunção
 (Email: [bas@cesar.school])
@@ -49,3 +33,15 @@ Os protótipos de baixa fidelidade foram desenvolvidos para ilustrar as históri
 __Screencast do protótipo__
 Confira a apresentação do protótipo no screencast abaixo. O vídeo inclui uma demonstração detalhada e uma explicação completa do protótipo:
 [Assistir ao screencast.](local do link)
+
+
+__Documentação:__
+
+__Print do quadro e do Backlog:__
+
+__Deployment das histórias:__
+
+__Quadro da Sprint 01:__
+
+
+
