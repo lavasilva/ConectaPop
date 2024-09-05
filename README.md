@@ -1,11 +1,17 @@
 ConectaPop
 
 1.História bem definidas:
+
 2.Criação de protótipo de Lo-Fi:
+
 3.Screencast(link protótipo + descrição):
+
 4.Documentação:
+
 5.Print do quadro e do Backlog:
+
 6.Deployment das histórias:
+
 7.Quadro da Sprint 01:
 
 Descrição: 
