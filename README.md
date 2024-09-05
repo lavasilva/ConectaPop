@@ -14,6 +14,8 @@ ConectaPop
 
 7.Quadro da Sprint 01:
 
+
+
 Descrição: 
 
 O aplicativo visa contribuir para o Objetivo de Desenvolvimento Sustentável 9 (ODS 9) - Indústria, Inovação e Infraestrutura ao fornecer uma plataforma interativa e acessível para o monitoramento das reformas e mudanças das estruturas das comunidades.
