@@ -32,10 +32,7 @@ Os protótipos de baixa fidelidade foram desenvolvidos para ilustrar as históri
 
 __Screencast do protótipo:__
 Confira a apresentação do protótipo no screencast abaixo. O vídeo inclui uma demonstração detalhada e uma explicação completa do protótipo:
-[Assistir ao screencast.](local do link)
-
-
-__Documentação:__
+[Assistir ao screencast.](https://youtu.be/R81cI1H7oLc?si=B2GDpFqC0Zz2oEbK)
 
 __Print do quadro e do Backlog:__
 
