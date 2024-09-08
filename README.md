@@ -25,7 +25,7 @@ Lavinia Maranhão
 (Email: [lmfs@cesar.school])
 
 <details>
-  <summary>Entregas</summary>
+  <summary>Entregas do Projeto</summary>
     <br>
   <details>
     <summary>Entrega 1</summary>
@@ -54,6 +54,13 @@ Lavinia Maranhão
     <br>
     <p><strong> Em construção...🔧🔨 </strong></p>
   </details>
+  
+  <details>
+    <summary>Entrega 4</summary>
+    <br>
+    <p><strong> Em construção...🔧🔨 </strong></p>
+  </details>
+
 </details>
 
 
