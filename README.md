@@ -24,6 +24,8 @@ Julia Maria Teixeira
 Lavinia Maranhão
 (Email: [lmfs@cesar.school])
 
+Entrega 1:
+
 __Histórias Bem Definidas:__
 As histórias dos usuários, devidamente definidas e detalhadas, podem ser acessadas [neste documento.](https://docs.google.com/document/d/1dVWGrCuVH_bPpP2ZX_JoNDxUlfM8ij-ivFmqM-KuvS0/edit?usp=sharing) Cada história é clara, concisa e foi elaborada para entregar um valor específico.
 
@@ -35,10 +37,7 @@ Confira a apresentação do protótipo no screencast abaixo. O vídeo inclui uma
 [Assistir ao screencast.](https://youtu.be/R81cI1H7oLc?si=B2GDpFqC0Zz2oEbK)
 
 __Print do quadro e do Backlog:__
-
-__Deployment das histórias:__
-
-__Quadro da Sprint 01:__
-
+<img width="917" alt="print sprint 1" src="https://github.com/user-attachments/assets/b324d162-09c0-4514-a13c-44f02ec271fb">
+<img width="918" alt="print backlog 2" src="https://github.com/user-attachments/assets/f1a69383-9ce2-44a9-bc0d-cc5e0084b72a">
 
 
