@@ -36,6 +36,8 @@ Lavinia Maranhão
     <br>
     <p><strong>Screencast do protótipo:</strong> Confira a apresentação do protótipo no <a href="https://youtu.be/R81cI1H7oLc?si=B2GDpFqC0Zz2oEbK" target="_blank">screencast</a> abaixo. O vídeo inclui uma demonstração detalhada e uma explicação completa do protótipo.</p>
     <br>
+    <p><strong>Quadro da Sprint 1 e Backlog feito no Jira:</strong> O quadro da Sprint 1 e o Backlog podem ser vistos <a href="https://lavisilva.atlassian.net/jira/software/projects/SCRUM/settings/access?cloudId=76a31727-a5d4-48b0-81f1-5ff4322bbb4b&showAssignee=on&showDaysInColumn=on&showDueDate=on&showEpics=on&showEstimate=on&showIssueKey=on&showIssueLinksStats=off&showIssueType=on&showLabels=on&showPriority=on&showStatuses=on&showVersions=on" target="_blank">neste link</a>  </p>
+    <br>
     <p><strong>Print do quadro e do Backlog:</strong> </p>
     <br>
     <img width="917" alt="print sprint 1" src="https://github.com/user-attachments/assets/48ee96d0-6382-4cf0-a6bf-4a27dc2ea85b">
