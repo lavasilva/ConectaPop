@@ -42,7 +42,8 @@ Lavinia Maranhão
     <br>
     <img width="917" alt="print sprint 1" src="https://github.com/user-attachments/assets/48ee96d0-6382-4cf0-a6bf-4a27dc2ea85b">
     <br>
-    <img width="918" alt="print backlog 2" src="https://github.com/user-attachments/assets/18cefc42-ecc1-4faa-83c0-728cbb34dda8">
+    <img width="918" alt="print backlog 2" src="![print backloggggg](https://github.com/user-attachments/assets/aec06c8b-7458-4357-af9d-081022698a86)
+">
   </details>
 
   <details>
