@@ -40,12 +40,9 @@ Lavinia Maranhão
     <br>
     <p><strong>Print do quadro e do Backlog:</strong> </p>
     <br>
-    <img width="917" alt="print sprint 1" src="https://github.com/user-attachments/assets/48ee96d0-6382-4cf0-a6bf-4a27dc2ea85b">
+    <img width="917" alt="print sprint 1" src="https://github.com/user-attachments/assets/22832b63-0007-4f0f-9cbe-49235be508ac">
     <br>
-    <img width="918" alt="print backlog 2" src="https://github.com/user-attachments/assets/18cefc42-ecc1-4faa-83c0-728cbb34dda8
-">
-    <br>
-    <img width="917" alt="print sprint 1" src="https://github.com/user-attachments/assets/44194b3d-ebf2-4cdb-83bd-887ce79562fc">
+    <img width="917" alt="Backlog" src="https://github.com/user-attachments/assets/44194b3d-ebf2-4cdb-83bd-887ce79562fc">
   </details>
   
   <details>
