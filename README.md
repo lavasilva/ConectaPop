@@ -44,8 +44,10 @@ Lavinia Maranhão
     <br>
     <img width="918" alt="print backlog 2" src="https://github.com/user-attachments/assets/18cefc42-ecc1-4faa-83c0-728cbb34dda8
 ">
+    <br>
+    <img width="917" alt="print sprint 1" src="https://github.com/user-attachments/assets/44194b3d-ebf2-4cdb-83bd-887ce79562fc">
   </details>
-
+  
   <details>
     <summary>Entrega 2</summary>
     <br>
