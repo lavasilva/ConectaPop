@@ -1,0 +1,92 @@
+<html></html>
+<head>
+    <title>Página de Registro</title>
+    <link rel="icon" href="iconecp.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .register-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .register-container h2 {
+            margin-bottom: 20px;
+            color: #333333;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .register-container input[type="text"],
+        .register-container input[type="email"],
+        .register-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .register-container input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .register-container label {
+            font-size: 14px;
+            color: #333333;
+        }
+        .register-container a {
+            color: #4A90E2;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .register-container a:hover {
+            text-decoration: underline;
+        }
+        .register-container button {
+            background-color: #4A90E2;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .register-container button:hover {
+            background-color: #0056b3;
+        }
+        .register-container .footer {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>REGISTRO</h2>
+        <form>
+            <input type="text" placeholder="Nome" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Senha" required>
+            <input type="password" placeholder="Confirme a Senha" required>
+            <div style="text-align: left;">
+                <input type="checkbox" id="terms">
+                <label for="terms">Aceito os termos e condições</label>
+            </div>
+            <button type="submit">REGISTRAR</button>
+        </form>
+        <div class="footer">
+            <a href="conectapop.html">Página inicial</a>
+        </div>
+    </div>
+</body>
+</html>
