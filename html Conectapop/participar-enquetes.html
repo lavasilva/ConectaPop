@@ -8,6 +8,86 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
     <link rel="icon" href="iconecp.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+                background-color: #ffffff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                display: flex;
+                padding: 20px;
+                max-width: 900px;
+                width: 100%;
+                margin: 0 auto;
+            }
+            .form-container {
+                flex: 1;
+                padding-right: 20px;
+            }
+            .form-container h1 {
+                font-size: 24px;
+                margin-bottom: 10px;
+                color: #212529;
+            }
+            .form-container p {
+                font-size: 16px;
+                margin-bottom: 20px;
+                color: #6c757d;
+            }
+            .form-group {
+                display: flex;
+                margin-bottom: 15px;
+            }
+            .form-group input, .form-group select, .form-group textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ced4da;
+                border-radius: 4px;
+                font-size: 14px;
+                color: #495057;
+            }
+            .form-group input[type="date"] {
+                padding-right: 30px;
+            }
+            .form-group i {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #6c757d;
+            }
+            .form-group.half {
+                width: 48%;
+            }
+            .form-group.half + .form-group.half {
+                margin-left: 4%;
+            }
+            .form-group textarea {
+                height: 100px;
+                resize: none;
+            }
+            .btn {
+                background-color: #4A90E2;
+                color: #ffffff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                font-size: 16px;
+                cursor: pointer;
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+            .image-container {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .image-container img {
+                max-width: 100%;
+                border-radius: 8px;
+            }
+   </style>
 </head>
 <body>
     <div class="navbar">
@@ -25,7 +105,6 @@
             <div class="dropdown">
                 <a href="#">Status das Reformas</a>
                 <div class="dropdown-content">
-                    <a href="ver-reformas.html">Ver Reformas</a>
                     <a href="relatorios-progresso.html">Relatórios de Progresso</a>
                 </div>
             </div>
@@ -39,15 +118,14 @@
             <div class="dropdown">
                 <a href="#">Mapa e Segurança</a>
                 <div class="dropdown-content">
-                    <a href="mapa-reformas.html">Mapa de Reformas</a>
+                    <a href="mapa-reformas.html">Mapa de Reformas e ver reformas</a>
                     <a href="alertas-seguranca.html">Alertas de Segurança</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#">Opinião da Comunidade</a>
                 <div class="dropdown-content">
-                    <a href="participar-enquetes.html">Participar de Enquetes</a>
-                    <a href="feedback-sugestoes.html">Feedback e Sugestões</a>
+                    <a href="participar-enquetes.html">Participar de Enquetes e Sugestões</a>
                 </div>
             </div>
             <div class="auth-links">
@@ -55,5 +133,73 @@
                 <a href="login.html" class="login-btn">Login</a>
             </div>
         </div>
-    </div> 
+    </div>    
+    <BR><BR><br><br><br>
+        <div class="container">
+            <div class="left-section">
+             <h1>
+            Participar de Enquetes, Feedbacks e Sugestões
+             </h1>
+             <p>
+            Aqui você pode participar de interações com sua comunidade e com as autoridades para melhorias da infraestrutura!
+             </p>
+             <h3>Digite Aqui sua Mensagem</h3>
+             <form>
+                <label for="nome">Nome:</label><br>
+                   <input type="text" id="nome" name="nome" placeholder="Digite seu Nome" required><br>
+                <label for="idade">Idade:</label><br>
+                   <input type="text" id="idade" name="idae" placeholder="Digite sua Idade" required><br>
+                <label for="endereço">Endereço:</label><br>
+                   <input type="text" id="endereço" name="endereco" placeholder="Digite seu Endereço" required><br><br>
+                <textarea placeholder="Digite sua mensagem"></textarea>
+                </form><br>
+                <button class="btn">
+                    ENVIAR
+                   </button>
+                   <h3>Participe das Enquetes</h3>
+                   <form>
+                    <label for="cars">Como você avalia o andamento das reformas em sua cidade?</label><br>
+                    <select name="opcoes" id="opcoes">
+                    <option value="opcao">Escolha sua opção</option>
+                    <option value="prazo">Prazo de conclusão</option>
+                    <option value="custo">Custo da obra</option>
+                    <option value="impacto">Impacto ambiental</option>
+                    <option value="transparencia">Transparência no processo</option>
+                    <option value="segurança">Segurança durante a execução</option>
+                    </select><br>
+                   
+                        <label for="pergunta">Qual é a sua maior preocupação em relação às reformas?</label><br>
+                        <select name="opcoes" id="opcoes">
+                        <option value="opcao">Escolha sua opção</option>
+                        <option value="mtlento">Muito lento</option>
+                        <option value="lento">Lento</option>
+                        <option value="adquado">Adequado</option>
+                        <option value="rapido">Rápido</option>
+                        <option value="mtrapido">Muito Rápido</option>
+                        </select><br>
+                    <label for="pergunta">Você acha que as reformas estão sendo realizadas de acordo com as necessidades da comunidade?</label><br>
+                        <select name="opcoes" id="opcoes">
+                        <option value="opcao">Escolha sua opção</option>
+                        <option value="sim">Sim, completamente</option>
+                        <option value="parcialmente">Parcialmente</option>
+                        <option value="nao">Não, falta planejamento</option>
+                        <option value="nao">Não, são desnecessárias</option>
+                        </select><br><br>
+                        <button class="btn">
+                            ENVIAR
+                           </button>
+                   </form>
+            <h3>Deixe sua Sugestão</h3>
+            <form>
+               <textarea placeholder="Digite sua sugestão"></textarea>
+               <br><br>
+               <button class="btn">
+                ENVIAR
+               </button>
+            </form>
+                
+             </div>
+    </body>
+
+
     </body>
