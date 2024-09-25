@@ -35,7 +35,7 @@ body {
 }
 
 .navbar .contact-btn {
-    background-color: #F5A623; /* Laranja */
+    background-color: #F5A623; 
     color: white;
     padding: 10px 20px;
     border-radius: 25px;
@@ -62,11 +62,11 @@ body {
 
 .hero-text p {
     font-size: 18px;
-    color: #7ED957; /* Verde Suave */
+    color: #7ED957; 
 }
 
 .hero-text .discover-btn {
-    background-color: #4A90E2; /* Azul Claro */
+    background-color: #4A90E2; 
     color: white;
     padding: 15px 30px;
     border-radius: 25px;
@@ -104,8 +104,8 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 50px;
-    background-color: #F5F7FA; /* Cinza Claro */
-    color: #4A4A4A; /* Cinza Escuro */
+    background-color: #F5F7FA;
+    color: #4A4A4A; 
 }
 
 .header {
@@ -209,8 +209,8 @@ body {
 }
 
 .footer {
-    background-color: #C7C8CA; /* Cinza Claro */
-    color: #4A4A4A; /* Cinza Escuro */
+    background-color: #C7C8CA;
+    color: #4A4A4A;
     padding: 50px 20px;
     text-align: center;
 }
@@ -227,7 +227,7 @@ body {
 }
 
 .footer p, .footer a {
-    color: #4A4A4A; /* Cinza Escuro */
+    color: #4A4A4A; 
     margin: 5px 0;
     text-decoration: none;
 }
@@ -236,23 +236,22 @@ body {
     display: inline-block;
     margin: 10px 0;
     padding: 10px 20px;
-    border: 2px solid #4A4A4A; /* Cinza Escuro */
+    border: 2px solid #4A4A4A;
     border-radius: 5px;
-    color: #4A4A4A; /* Cinza Escuro */
-    text-decoration: none;
+    color: #4A4A4A; 
 }
 
 .footer .enquire-button {
     display: inline-block;
     margin: 10px 0;
     padding: 10px 20px;
-    background-color: #4A90E2; /* Azul Claro */
+    background-color: #4A90E2;
 }
 
 .contact-section {
     padding: 50px;
     text-align: center;
-    background-color: #F5F7FA; /* Cinza Claro */
+    background-color: #F5F7FA; 
 }
 
 .contact-section div {
@@ -269,15 +268,15 @@ body {
 .contact-section h3 {
     margin: 10px 0;
     font-size: 18px;
-    color: #4A4A4A; /* Cinza Escuro */
+    color: #4A4A4A; 
 }
 
 .contact-section p {
     margin: 5px 0;
-    color: #4A4A4A; /* Cinza Escuro */
+    color: #4A4A4A; 
 }
 
-/* Dropdown Styles */
+
 .dropdown {
     position: relative;
 }
@@ -286,7 +285,7 @@ body {
     display: none;
     position: absolute;
     background-color: white;
-    color: #4A4A4A; /* Cinza Escuro */
+    color: #4A4A4A;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -297,14 +296,14 @@ body {
 }
 
 .dropdown-content a {
-    color: #4A4A4A; /* Cinza Escuro */
+    color: #4A4A4A;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
 
 .dropdown-content a:hover {
-    background-color: #F5F7FA; /* Cinza Claro */
+    background-color: #F5F7FA; 
 }
 
 .auth-links {
@@ -316,11 +315,11 @@ body {
 .auth-links a {
     margin: 0 10px;
     font-weight: 600;
-    color: #FFFFFF; /* Branco para contraste */
+    color: #FFFFFF;
 }
 
 .register-btn {
-    background-color: #F5A623; /* Laranja */
+    background-color: #F5A623;
     padding: 10px 20px;
     border-radius: 25px;
     border: none;
@@ -328,7 +327,7 @@ body {
 }
 
 .login-btn {
-    background-color: #4A90E2; /* Azul Claro */
+    background-color: #4A90E2;
     padding: 10px 20px;
     border-radius: 25px;
     border: none;
@@ -418,9 +417,9 @@ body {
 }
 
 .reformas-ativas-container {
-    display: none; /* Oculta o container inicialmente */
+    display: none; 
 }
   
 #show-reformas:checked ~ .reformas-ativas-container {
-    display: block; /* Mostra o container quando o checkbox é checked */
+    display: block;
 }
