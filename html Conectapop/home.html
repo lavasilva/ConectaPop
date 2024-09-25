@@ -13,17 +13,17 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="conectapop.html">
+        <a href="{% url 'Aplicacao:home' %}">
             <div class="logo">ConectaPop</div>
           </a>
         <div class="nav-links">
             <div class="dropdown">
                 <a href="#">Relatar e Acompanhar</a>
                 <div class="dropdown-content">
-                    <a href="relatar-problemas.html">Relatar Problemas</a>
+                    <a href="{% url 'Aplicacao:relatar_problemas' %}">Relatar Problemas</a>
                     <a href="atualizacoes-moradores.html">Atualizações para Moradores</a>
                 </div>
-            </div>
+            </div>            
             <div class="dropdown">
                 <a href="#">Status das Reformas</a>
                 <div class="dropdown-content">
