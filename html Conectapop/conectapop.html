@@ -7,11 +7,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
     <link rel="icon" href="iconecp.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+
 </head>
 <body>
     <div class="navbar">
-        <a href="conectapop.html">
+        <a href="home.html">
             <div class="logo">ConectaPop</div>
           </a>
         <div class="nav-links">
