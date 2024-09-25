@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #F5F7FA; 
+}
 
 .navbar {
     position: fixed;
@@ -11,7 +12,6 @@ body {
     padding: 20px 50px;
     background-color: #4A90E2; 
     z-index: 2;
-
 }
 
 .nav-links {
@@ -169,7 +169,6 @@ body {
     max-width: 500px;
 }
 
-
 .service-item h3 {
     font-size: 20px;
     margin: 0;
@@ -195,7 +194,7 @@ body {
 
 .contact-section i {
     font-size: 24px;
-    color: #4A90E2
+    color: #4A90E2;
 }
 
 .contact-section h3 {
@@ -264,7 +263,7 @@ body {
 
 .contact-section i {
     font-size: 24px;
-    color: #4A90E2
+    color: #4A90E2;
 }
 
 .contact-section h3 {
@@ -289,7 +288,7 @@ body {
     background-color: white;
     color: #4A4A4A; /* Cinza Escuro */
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -334,7 +333,7 @@ body {
     border-radius: 25px;
     border: none;
     cursor: pointer;
-}}
+}
 
 .container {
     display: flex;
@@ -344,28 +343,34 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
+
 .left-section {
     width: 45%;
 }
+
 .left-section h1 {
     font-size: 2.5em;
     color: #333;
 }
+
 .left-section p {
     font-size: 1em;
     color: #666;
     line-height: 1.5;
 }
+
 .right-section {
     width: 45%;
     background-color: #4A90E2;
     padding: 20px;
     border-radius: 10px;
 }
+
 .right-section form {
     display: flex;
     flex-direction: column;
 }
+
 .right-section form input,
 .right-section form select,
 .right-section form textarea,
@@ -376,25 +381,29 @@ body {
     border-radius: 5px;
     font-size: 1em;
 }
+
 .right-section form input,
 .right-section form select,
 .right-section form textarea {
     width: 100%;
 }
+
 .right-section form button {
     background-color: #fff;
     color: #333;
     cursor: pointer;
     font-weight: bold;
 }
+
 #enviarbtn {
     display: none;
-  }
+}
   
-  #enviarbtn:target {
+#enviarbtn:target {
     display: block;
-  }
-  .btn {
+}
+
+.btn {
     background-color: #4A90E2;
     color: #ffffff;
     padding: 10px 20px;
@@ -406,11 +415,12 @@ body {
     width: 100%;
     text-align: center;
     text-decoration: none; 
-  }
-  .reformas-ativas-container {
+}
+
+.reformas-ativas-container {
     display: none; /* Oculta o container inicialmente */
-  }
+}
   
-  #show-reformas:checked ~ .reformas-ativas-container {
+#show-reformas:checked ~ .reformas-ativas-container {
     display: block; /* Mostra o container quando o checkbox é checked */
-  }
+}
