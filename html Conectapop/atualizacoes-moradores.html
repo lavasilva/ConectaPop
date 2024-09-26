@@ -7,99 +7,102 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
     <link rel="icon" href="iconecp.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
     <style>
-         .container {
-                 background-color: #ffffff;
-                 border-radius: 8px;
-                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                 display: flex;
-                 padding: 20px;
-                 max-width: 900px;
-                 width: 100%;
-                 margin: 0 auto;
-             }
-             .form-container {
-                 flex: 1;
-                 padding-right: 20px;
-             }
-             .form-container h1 {
-                 font-size: 24px;
-                 margin-bottom: 10px;
-                 color: #212529;
-             }
-             .form-container p {
-                 font-size: 16px;
-                 margin-bottom: 20px;
-                 color: #6c757d;
-             }
-             .form-group {
-                 display: flex;
-                 margin-bottom: 15px;
-             }
-             .form-group input, .form-group select, .form-group textarea {
-                 width: 100%;
-                 padding: 10px;
-                 border: 1px solid #ced4da;
-                 border-radius: 4px;
-                 font-size: 14px;
-                 color: #495057;
-             }
-             .form-group input[type="date"] {
-                 padding-right: 30px;
-             }
-             .form-group i {
-                 position: absolute;
-                 right: 10px;
-                 top: 50%;
-                 transform: translateY(-50%);
-                 color: #6c757d;
-             }
-             .form-group.half {
-                 width: 48%;
-             }
-             .form-group.half + .form-group.half {
-                 margin-left: 4%;
-             }
-             .form-group textarea {
-                 height: 100px;
-                 resize: none;
-             }
-             .btn {
-                 background-color: #4A90E2;
-                 color: #ffffff;
-                 padding: 10px 20px;
-                 border: none;
-                 border-radius: 4px;
-                 font-size: 16px;
-                 cursor: pointer;
-                 display: block;
-                 width: 100%;
-                 text-align: center;
-             }
-             .image-container {
-                 flex: 1;
-                 display: flex;
-                 justify-content: center;
-                 align-items: center;
-             }
-             .image-container img {
-                 max-width: 100%;
-                 border-radius: 8px;
-             }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            padding: 20px;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .form-container {
+            flex: 1;
+            padding-right: 20px;
+        }
+        .form-container h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #212529;
+        }
+        .form-container p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #6c757d;
+        }
+        .form-group {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #495057;
+        }
+        .form-group input[type="date"] {
+            padding-right: 30px;
+        }
+        .form-group i {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+        .form-group.half {
+            width: 48%;
+        }
+        .form-group.half + .form-group.half {
+            margin-left: 4%;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: none;
+        }
+        .btn {
+            background-color: #4A90E2;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
     <div class="navbar">
-        <a href="conectapop.html">
+        <a href="{% url 'Aplicacao:home' %}">
             <div class="logo">ConectaPop</div>
-          </a>
+        </a>
         <div class="nav-links">
             <div class="dropdown">
                 <a href="#">Relatar e Acompanhar</a>
                 <div class="dropdown-content">
-                    <a href="relatar-problemas.html">Relatar Problemas</a>
-                    <a href="atualizacoes-moradores.html">Atualizações para Moradores</a>
+                    <a href="{% url 'Aplicacao:relatar_problemas' %}">Relatar Problemas</a>
+                    <a href="{% url 'Aplicacao:atualizacoes' %}">Atualizações para Moradores</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -125,7 +128,7 @@
             <div class="dropdown">
                 <a href="#">Opinião da Comunidade</a>
                 <div class="dropdown-content">
-                    <a href="participar-enquetes.html">Participar de Enquetes e Sugestões</a>
+                    <a href="{% url 'Aplicacao:enquetes' %}">Participar de Enquetes e Sugestões</a>
                 </div>
             </div>
             <div class="auth-links">
@@ -134,53 +137,45 @@
             </div>
         </div>
     </div>    
-    <BR><BR><br><br><br>
-        <div class="container">
-            <div class="left-section">
-             <h1>
-            Atualização de Moradores
-             </h1>
-             <p>
-            Aqui você pode conferir as atualizações das reformas da sua comunidade!
-             </p>
-             <form>
+
+    <br><br><br><br><br>
+    <div class="container">
+        <div class="left-section">
+            <h1>Atualização de Moradores</h1>
+            <p>Aqui você pode conferir as atualizações das reformas da sua comunidade!</p>
+            <form>
                 <label for="endereco">Endereço:</label><br>
                 <input type="text" id="endereco" name="endereco" placeholder="Digite seu Endereço" required>
-             </form>
-             <br>
-             <input type="checkbox" id="show-reformas" style="display: none;">
+            </form>
+            <br>
+            <input type="checkbox" id="show-reformas" style="display: none;">
+            <label for="show-reformas" class="btn">ENVIAR</label>
 
-  
-             <label for="show-reformas" class="btn">
-               ENVIAR
-             </label>
-             
-             
-             <div class="reformas-ativas-container">
-               <br><br><br>
-                 <h1>
-                Reformas Ativas da sua Região:
-                 </h1>
-                 <p>
+            <div class="reformas-ativas-container">
+                <br><br><br>
+                <h1>Reformas Ativas da sua Região:</h1>
+                <p>
                     <img src="/img/images.jpeg" width="300px" height="300px" alt="Imagem de reformas"> <br>
                     Localização: Rua da Estrela<br>
                     Problema: Asfaltando a Rua<br>
                     Status: Em Andamento
-                  </p>
-                  <br><br><br>
-                  <p>
-                    <img src="/img/esgoto.avif"  width="300px" height="300px" alt="Imagem de reforma de encanamentos"> <br>
+                </p>
+                <br><br><br>
+                <p>
+                    <img src="/img/esgoto.avif" width="300px" height="300px" alt="Imagem de reforma de encanamentos"> <br>
                     Localização: Rua do Sol<br>
                     Problema: Reparo de Encanamentos<br>
                     Status: Em Andamento
-                  </p>
-                  <br><br><br>
-                  <p>
+                </p>
+                <br><br><br>
+                <p>
                     <img src="/img/pavimentacao.webp" width="300px" height="300px" alt="Imagem de reforma de buracos nas vias"> <br>
                     Localização: Rua da Lua<br>
                     Problema: Reparo de Buracos nas Vias<br>
                     Status: Finalizado
-                  </p>
-                
-             </div>
-    </body>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
