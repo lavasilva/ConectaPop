@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from django.views import View
 from .models import Relatar
+from .models import Enquetes
 
 class HomeView(View):
     def get(self, request):
@@ -34,3 +35,34 @@ class relatar_problemas(View):
         relatar.save()
 
         return redirect('Aplicacao:home')
+    
+class enquetes(View):
+    def get(self, request):
+        return render(request, 'enquetes.html')
+    
+    def post(self, request):
+        nome = request.POST.get("nome")
+        idade = request.POST.get("idade")
+        endereco = request.POST.get("endereco")
+        mensagem = request.POST.get("mensagem")
+        opcao1 = request.POST.get("opcao1")
+        opcao2 = request.POST.get("opcao2")
+        opcao3 = request.POST.get("opcao3")
+
+        enquete = Enquetes(
+            nome = nome,
+            idade = idade,
+            endereco = endereco,
+            mensagem = mensagem,
+            opcao1 = opcao1,
+            opcao2 = opcao2,
+            opcao3 = opcao3,
+        )
+
+        enquete.save()
+
+        return redirect('Aplicacao:home')
+    
+class atualizacoes(View):
+    def get(self, request):
+        return render(request, 'atualizacoes.html')
