@@ -21,7 +21,7 @@
                 <a href="#">Relatar e Acompanhar</a>
                 <div class="dropdown-content">
                     <a href="{% url 'Aplicacao:relatar_problemas' %}">Relatar Problemas</a>
-                    <a href="atualizacoes-moradores.html">Atualizações para Moradores</a>
+                    <a href="{% url 'Aplicacao:atualizacoes' %}">Atualizações para Moradores</a>
                 </div>
             </div>            
             <div class="dropdown">
@@ -47,7 +47,7 @@
             <div class="dropdown">
                 <a href="#">Opinião da Comunidade</a>
                 <div class="dropdown-content">
-                    <a href="participar-enquetes.html">Participar de Enquetes e Sugestões</a>
+                    <a href="{% url 'Aplicacao:enquetes' %}">Participar de Enquetes e Sugestões</a>
                 </div>
             </div>
             <div class="auth-links">
