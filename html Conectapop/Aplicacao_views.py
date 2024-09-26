@@ -1,7 +1,6 @@
 from django.shortcuts import redirect, render
 from django.views import View
-from .models import Relatar
-from .models import Enquetes
+from .models import Relatar, Enquetes
 
 class HomeView(View):
     def get(self, request):
@@ -22,18 +21,17 @@ class relatar_problemas(View):
         foto = request.POST.get("foto")
 
         relatar = Relatar(
-            titulo = titulo,
-            descricao = descricao,
-            problema = problema,
-            endereco = endereco,
-            cidade = cidade,
-            estado = estado,
-            cep = cep,
-            foto = foto
+            titulo=titulo,
+            descricao=descricao,
+            problema=problema,
+            endereco=endereco,
+            cidade=cidade,
+            estado=estado,
+            cep=cep,
+            foto=foto
         )
 
         relatar.save()
-
         return redirect('Aplicacao:home')
     
 class enquetes(View):
@@ -50,19 +48,25 @@ class enquetes(View):
         opcao3 = request.POST.get("opcao3")
 
         enquete = Enquetes(
-            nome = nome,
-            idade = idade,
-            endereco = endereco,
-            mensagem = mensagem,
-            opcao1 = opcao1,
-            opcao2 = opcao2,
-            opcao3 = opcao3,
+            nome=nome,
+            idade=idade,
+            endereco=endereco,
+            mensagem=mensagem,
+            opcao1=opcao1,
+            opcao2=opcao2,
+            opcao3=opcao3,
         )
 
         enquete.save()
-
         return redirect('Aplicacao:home')
     
 class atualizacoes(View):
     def get(self, request):
-        return render(request, 'atualizacoes.html')
+        endereco = request.GET.get('endereco')
+        problema = Relatar.objects.filter(endereco=endereco).first()  # Busca o primeiro problema pelo endereço
+        
+        if problema:
+            return render(request, 'atualizacoes.html', {'problema': problema})
+        else:
+            mensagem = "O endereço informado não possui ocorrências de problemas."
+            return render(request, 'atualizacoes.html', {'mensagem': mensagem})
