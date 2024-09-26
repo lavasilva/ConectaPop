@@ -10,59 +10,106 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'home.css' %}">
     <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+        }
+        .navbar {
+            background-color: #4A90E2;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px; 
+            margin: 0 5px; 
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .auth-links a {
+            padding: 8px 12px;
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+        }
+        .register-btn {
+            background-color: #F5A623; 
+        }
+        .login-btn {
+            background-color: #4A90E2; 
+        }
         .container {
             background-color: #ffffff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            padding: 20px;
             max-width: 900px;
-            width: 100%;
-            margin: 0 auto;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #212529;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #6c757d;
+            text-align: center;
+            margin-bottom: 20px;
         }
         .form-container {
-            flex: 1;
-            padding-right: 20px;
-        }
-        .form-container h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #212529;
-        }
-        .form-container p {
-            font-size: 16px;
             margin-bottom: 20px;
-            color: #6c757d;
         }
         .form-group {
-            display: flex;
             margin-bottom: 15px;
         }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 10px;
             border: 1px solid #ced4da;
             border-radius: 4px;
             font-size: 14px;
             color: #495057;
-        }
-        .form-group input[type="date"] {
-            padding-right: 30px;
-        }
-        .form-group i {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #6c757d;
-        }
-        .form-group.half {
-            width: 48%;
-        }
-        .form-group.half + .form-group.half {
-            margin-left: 4%;
+            box-sizing: border-box;
+            max-width: 400px;
+            margin: 0 auto;
         }
         .form-group textarea {
             height: 100px;
@@ -77,18 +124,38 @@
             font-size: 16px;
             cursor: pointer;
             display: block;
-            width: 100%;
+            width: 200px;
+            margin: 20px auto;
             text-align: center;
         }
-        .image-container {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .descricao-box {
+            max-height: 150px;
+            overflow-y: auto;
+            border: 1px solid #ced4da;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            margin-top: 10px;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .image-container img {
-            max-width: 100%;
-            border-radius: 8px;
+        .info-item {
+            background-color: #f0f4f8;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .no-problem-message {
+            text-align: center;
+            color: #dc3545; 
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -101,7 +168,7 @@
             <div class="dropdown">
                 <a href="#">Relatar e Acompanhar</a>
                 <div class="dropdown-content">
-                    <a href="{% url 'Aplicacao:relatar_problemas' %}">Relatar Problemas</a>
+                    <a href="{% url 'Aplicacao:relatar_problemas' %}">Relatar Ocorrencias</a>
                     <a href="{% url 'Aplicacao:atualizacoes' %}">Atualizações para Moradores</a>
                 </div>
             </div>
@@ -136,45 +203,52 @@
                 <a href="login.html" class="login-btn">Login</a>
             </div>
         </div>
-    </div>    
+    </div>
 
-    <br><br><br><br><br>
     <div class="container">
-        <div class="left-section">
+        <div class="form-container">
             <h1>Atualização de Moradores</h1>
             <p>Aqui você pode conferir as atualizações das reformas da sua comunidade!</p>
-            <form>
-                <label for="endereco">Endereço:</label><br>
-                <input type="text" id="endereco" name="endereco" placeholder="Digite seu Endereço" required>
+            <form action="{% url 'Aplicacao:atualizacoes' %}" method="GET">
+                <div class="form-group">
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" id="endereco" name="endereco" placeholder="Digite seu Endereço" required>
+                </div>
+                <button class="btn">Verificar Ocorrencia</button>
             </form>
-            <br>
-            <input type="checkbox" id="show-reformas" style="display: none;">
-            <label for="show-reformas" class="btn">ENVIAR</label>
+        </div>
 
-            <div class="reformas-ativas-container">
-                <br><br><br>
-                <h1>Reformas Ativas da sua Região:</h1>
-                <p>
-                    <img src="/img/images.jpeg" width="300px" height="300px" alt="Imagem de reformas"> <br>
-                    Localização: Rua da Estrela<br>
-                    Problema: Asfaltando a Rua<br>
-                    Status: Em Andamento
-                </p>
-                <br><br><br>
-                <p>
-                    <img src="/img/esgoto.avif" width="300px" height="300px" alt="Imagem de reforma de encanamentos"> <br>
-                    Localização: Rua do Sol<br>
-                    Problema: Reparo de Encanamentos<br>
-                    Status: Em Andamento
-                </p>
-                <br><br><br>
-                <p>
-                    <img src="/img/pavimentacao.webp" width="300px" height="300px" alt="Imagem de reforma de buracos nas vias"> <br>
-                    Localização: Rua da Lua<br>
-                    Problema: Reparo de Buracos nas Vias<br>
-                    Status: Finalizado
-                </p>
+        {% if problema %}
+            <div class="info-item">
+                <p><strong>Título:</strong> {{ problema.titulo }}</p>
             </div>
+            <div class="info-item">
+                <p><strong>Tipo de Problema:</strong> {{ problema.problema }}</p>
+            </div>
+            <div class="info-item">
+                <p><strong>Cidade:</strong> {{ problema.cidade }}</p>
+            </div>
+            <div class="info-item">
+                <p><strong>Estado:</strong> {{ problema.estado }}</p>
+            </div>
+            <div class="info-item">
+                <p><strong>CEP:</strong> {{ problema.cep }}</p>
+            </div>
+            {% if problema.foto %}
+                <div class="info-item">
+                    <p><strong>Foto:</strong> <img src="{{ problema.foto }}" alt="Foto do Problema" style="max-width: 100%; height: auto;"></p>
+                </div>
+            {% endif %}
+            <div class="info-item">
+                <p><strong>Descrição do Problema:</strong></p>
+                <div class="descricao-box">{{ problema.descricao }}</div>
+            </div>
+        {% elif mensagem %}
+            <p class="no-problem-message">{{ mensagem }}</p>
+        {% endif %}
+
+        <div>
+            <a href="{% url 'Aplicacao:home' %}" class="btn">Voltar para a Página Inicial</a>
         </div>
     </div>
 </body>
