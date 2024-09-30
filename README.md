@@ -67,7 +67,6 @@ Lavinia Maranhão
     <summary>Entrega 3</summary>
     <br>
     <p><strong> Em construção...🔧🔨 </strong></p>
-    <p><strong> Teste 🔧🔨 </strong></p>
   </details>
   
   <details>
