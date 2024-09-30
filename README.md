@@ -48,13 +48,26 @@ Lavinia Maranhão
   <details>
     <summary>Entrega 2</summary>
     <br>
-    <p><strong> Em construção...🔧🔨 </strong></p>
+    <p><strong>Quadro da Sprint 1 e Backlog feito no Jira:</strong> O quadro da Sprint 1 e o Backlog podem ser vistos <a href="https://lavisilva.atlassian.net/jira/software/projects/SCRUM/boards/1" target="_blank">neste link</a>.</p>
+<br>
+<p><strong>Histórias Bem Definidas:</strong> As 3 histórias dos usuários, devidamente definidas e detalhadas, podem ser acessadas <a href="https://docs.google.com/document/d/104VlesfLHcNwfXemVUOjLS_83KCMA2n-KmCvf9VyMqU/edit?usp=sharing" target="_blank">neste documento</a>. Cada história é clara, concisa e elaborada para entregar um valor específico.</p>
+<br>
+<p><strong>Screencast do uso do sistema:</strong> Confira a apresentação do uso do sistema no <a href="URL" target="_blank">screencast</a> abaixo. O vídeo inclui uma demonstração detalhada e uma explicação completa do protótipo.</p>
+<br>
+<p><strong>Print do quadro e do Backlog:</strong></p>
+<br>
+<img width="917" alt="print sprint 1" src="https://github.com/user-attachments/assets/0cd2df26-7ab0-4c6f-a531-6eb45c2da9d4">
+<br>
+<img width="917" alt="Backlog" src="https://github.com/user-attachments/assets/d3b86280-e97d-4bb4-b24e-2dcaf067c472">
+ >
+
   </details>
 
   <details>
     <summary>Entrega 3</summary>
     <br>
     <p><strong> Em construção...🔧🔨 </strong></p>
+    <p><strong> Teste 🔧🔨 </strong></p>
   </details>
   
   <details>
@@ -64,6 +77,3 @@ Lavinia Maranhão
   </details>
 
 </details>
-
-
-
