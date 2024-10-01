@@ -38,10 +38,6 @@ venv.bak/
 /static/
 /mediafiles/
 
-# Django migrations
-*/migrations/.py
-!**/migrations/_init_.py
-
 # pyenv
 .python-version
 
