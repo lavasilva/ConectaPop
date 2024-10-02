@@ -50,13 +50,13 @@ else:
     
 # Application definition
 INSTALLED_APPS = [
+    "Projeto.Aplicacao",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "Aplicacao",
     #Adicionar whitenoise na lista de aplicativos instalados
     "whitenoise.runserver_nostatic",
 ]
