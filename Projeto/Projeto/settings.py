@@ -2,20 +2,22 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(BASE_DIR / '.env')  # Carrega o arquivo .env
 
+load_dotenv(BASE_DIR / '.env')
 
-# Define o ambiente com base no arquivo arquivo.env
-TARGET_ENV = os.getenv('TARGET_ENV')  # Lê o valor de TARGET_ENV
-NOT_PROD = not TARGET_ENV.lower().startswith('prod')  # Verifica se o ambiente é produção
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+
+TARGET_ENV = os.getenv('TARGET_ENV')
+NOT_PROD = not TARGET_ENV.lower().startswith('prod')
 
 if NOT_PROD:
-    # Ambiente de desenvolvimento
+    # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = True
-    SECRET_KEY = 'django-insecure-%5d!n1npo%nx9hxs*k&en_c#&au=gc+++c3ug+)jkd!jlw2b(1'
+    # SECURITY WARNING: keep the secret key used in production secret!
+    SECRET_KEY = '<A SECRET KEY DO SEU PROJETO>'
     ALLOWED_HOSTS = []
     DATABASES = {
         'default': {
@@ -24,13 +26,13 @@ if NOT_PROD:
         }
     }
 else:
-    # Ambiente de produção
-    SECRET_KEY = os.getenv('SECRET_KEY')  # A chave secreta estará como variável de ambiente na Azure
+    SECRET_KEY = os.getenv('SECRET_KEY')
     DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
     ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
     CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(' ')
 
-    SECURE_SSL_REDIRECT = os.getenv('SECURE_SSL_REDIRECT', '0').lower() in ['true', 't', '1']
+    SECURE_SSL_REDIRECT = \
+        os.getenv('SECURE_SSL_REDIRECT', '0').lower() in ['true', 't', '1']
 
     if SECURE_SSL_REDIRECT:
         SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -45,28 +47,30 @@ else:
             'OPTIONS': {'sslmode': 'require'},
         }
     }
-
+    
 # Application definition
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'Aplicacao',
-    'whitenoise.runserver_nostatic',  # Adicionando whitenoise
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "Aplicacao",
+    #Adicionar whitenoise na lista de aplicativos instalados
+    "whitenoise.runserver_nostatic",
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Adicionando whitenoise middleware
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    # Add whitenoise middleware after the security middleware                             
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 ROOT_URLCONF = 'Projeto.urls'

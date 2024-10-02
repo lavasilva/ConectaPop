@@ -1,70 +1,21 @@
-# Python
-*.pyc
-*.pyo
-*.pyd
-_pycache_/
-*.sqlite3
-
-# Django
-*.log
-*.pot
-*.py[cod]
-*.so
-*.mo
-*.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-*.pkl
-db.sqlite3
-.DS_Store
-
-# Environments
+# Ambiente Virtual
 venv/
 env/
-ENV/
-venv.bak/
-.vscode/
-.idea/
-*.env
-*.local
 
-# Static and media files
-/staticfiles/
-/media/
-/static/
-/mediafiles/
-
-# pyenv
-.python-version
-
-# Editor and IDE files
-.vscode/
-.idea/
-
-# JetBrains IDEs
-*.iml
-*.ipr
-*.iws
-.idea/
-
-# macOS specific
-.DS_Store
-
-# Jupyter Notebooks checkpoints
-.ipynb_checkpoints/
-
-# Byte-compiled / optimized / DLL files
+# Arquivos Python compilados
 _pycache_/
 *.py[cod]
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
+# Arquivos de log
+*.log
 
-# Temporary files
-*.swp
+# Configurações de banco de dados locais
+db.sqlite3
+*.sqlite3
+
+# Arquivos de configurações do IDE/editor
+.vscode/
+.idea/
+
+# Arquivos de mídia e uploads (se você estiver armazenando no projeto)
+media/
