@@ -50,7 +50,7 @@ else:
     
 # Application definition
 INSTALLED_APPS = [
-    "Projeto.Aplicacao",
+    "Aplicacao",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
