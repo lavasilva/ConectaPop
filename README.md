@@ -45,7 +45,7 @@ Lavinia Maranhão
     <img width="917" alt="Backlog" src="https://github.com/user-attachments/assets/44194b3d-ebf2-4cdb-83bd-887ce79562fc">
   </details>
   
-  <details>
+<details>
     <summary>Entrega 2</summary>
     <br>
     <p><strong>Quadro da Sprint 1 e Backlog feito no Jira:</strong> O quadro da Sprint 1 e o Backlog podem ser vistos <a href="https://lavisilva.atlassian.net/jira/software/projects/SCRUM/boards/1" target="_blank">neste link</a>.</p>
@@ -54,6 +54,15 @@ Lavinia Maranhão
 <br>
 <p><strong>Screencast do uso do sistema:</strong> Confira a apresentação do uso do sistema no <a href="https://youtu.be/DbOJlcSSWXI?si=TBRt4czJPdMJ17zw" target="_blank">screencast</a> abaixo. O vídeo inclui uma demonstração detalhada e uma explicação completa do protótipo.</p>
 <br>
+<p><strong>Acesso ao Sistema:</strong> Você pode acessar o sistema através do seguinte link: <a href="https://conectapop.azurewebsites.net/" target="_blank">https://conectapop.azurewebsites.net/</a></p>
+<br>
+<p><strong>Instruções de Acesso:</strong></p>
+<ul>
+    <li>Acesse o sistema através do link: <a href="https://conectapop.azurewebsites.net/" target="_blank">https://conectapop.azurewebsites.net/</a></li>
+    <li>Na página inicial, você verá o menu de navegação no topo (navbar).</li>
+    <li>Clique nas seções "Relatar ocorrências", "Atualizações para moradores" ou "Participar de enquetes ou sugestões" no navbar para acessar as funcionalidades implementadas.</li>
+</ul>
+<br>
 <p><strong>Print do quadro e do Backlog:</strong></p>
 <br>
 <img width="917" alt="print sprint 1" src="https://github.com/user-attachments/assets/0cd2df26-7ab0-4c6f-a531-6eb45c2da9d4">
@@ -61,6 +70,7 @@ Lavinia Maranhão
 <img width="917" alt="Backlog" src="https://github.com/user-attachments/assets/d3b86280-e97d-4bb4-b24e-2dcaf067c472">
 
   </details>
+
 
   <details>
     <summary>Entrega 3</summary>
