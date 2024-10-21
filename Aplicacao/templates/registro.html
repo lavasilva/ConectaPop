@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Registro</title>
+    <link rel="icon" href="iconecp.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .register-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .register-container h2 {
+            margin-bottom: 20px;
+            color: #333333;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .register-container input[type="text"],
+        .register-container input[type="email"],
+        .register-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .register-container .register-button {
+            background-color: #4A90E2;
+            color: #ffffff;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+        }
+        .register-container .register-button:hover {
+            background-color: #0056b3;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #5cb85c; /* Cor para o botão de voltar */
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center; /* Centraliza o texto */
+        }
+        .back-button:hover {
+            background-color: #4cae4c; /* Tom mais escuro ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>REGISTRAR</h2>
+        <form method="POST" action="{% url 'Aplicacao:registro' %}">
+            {% csrf_token %}
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <input type="password" name="confirmar_senha" placeholder="Confirme a Senha" required>
+            <br>
+            <button type="submit" class="register-button">REGISTRAR</button>
+        </form>
+        <a href="{% url 'Aplicacao:home' %}" class="back-button">Página inicial</a>
+    </div>
+</body>
+</html>

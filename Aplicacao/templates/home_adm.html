@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConectaPop</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <style>
+        body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #F5F7FA; 
+}
+
+.navbar {
+    position: fixed; /* Fixa a navbar no topo da página */
+    display: flex; /* Utiliza flexbox para layout dos itens */
+    justify-content: space-between; /* Distribui o espaço entre os itens */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    padding: 20px 50px; /* Define o padding da navbar */
+    background-color: #4A90E2; /* Cor de fundo azul */
+    z-index: 2; /* Garante que fique sobre outros elementos */
+    width: 100%; /* Ocupa 100% da largura da tela */
+    left: 0; /* Garante que comece do lado esquerdo da tela */
+    right: 0; /* Garante que termine no lado direito da tela */
+    box-sizing: border-box; /* Inclui padding na largura total da navbar */
+}
+
+.navbar-container {
+    display: flex; /* Utiliza flexbox para organizar os itens */
+    justify-content: space-between; /* Distribui espaço entre os itens */
+    align-items: center; /* Alinha os itens verticalmente */
+    width: 100%; /* Ocupa 100% da área disponível */
+    max-width: 1200px; /* Limita a largura máxima a 1200px em telas maiores */
+    margin: 0 auto; /* Centraliza a navbar em telas grandes */
+    box-sizing: border-box; /* Inclui o padding dentro da largura do contêiner */
+}
+
+.nav-links {
+    display: flex; /* Utiliza flexbox para os links */
+    justify-content: space-between; /* Espaçamento igual entre os links */
+    align-items: center; /* Alinha os links verticalmente */
+    width: 100%; /* Ocupa toda a largura da navbar */
+}
+
+.navbar a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: #FFFFFF; /* Cor branca para os links */
+    margin: 0 15px; /* Espaço entre os links */
+    font-weight: 600; /* Peso da fonte */
+}
+
+.navbar .logo {
+    font-size: 24px; /* Tamanho da fonte do logo */
+    font-weight: 600; /* Peso da fonte do logo */
+    color: white; /* Cor do logo */
+    margin-right: 60px; /* Espaço à direita do logo */
+}
+
+.navbar .contact-btn {
+    background-color: #F5A623; /* Cor laranja do botão */
+    color: white; /* Cor do texto do botão */
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    border-radius: 25px; /* Bordas arredondadas */
+    border: none; /* Remove borda padrão */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    margin-left: 10px; /* Espaço à esquerda do botão */
+    white-space: nowrap; /* Evita quebra de linha no botão */
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 50px;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    margin: 20px 0;
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #7ED957; /* Verde Suave */
+}
+
+.hero-text .discover-btn {
+    background-color: #4A90E2; /* Azul Claro */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.hero-image {
+    position: relative;
+}
+
+.hero-image img {
+    width: 400px;
+}
+
+.hero-image .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    border: 2px dashed white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    background-color: #F5F7FA; /* Cinza Claro */
+    color: #4A4A4A; /* Cinza Escuro */
+}
+
+.header {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.header p {
+    font-size: 18px;
+    color: #666;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.content .text {
+    width: 45%;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.content .illustration {
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.illustration img {
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+}
+
+.services {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.service-item h3 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.service-item p {
+    font-size: 16px;
+    color: #666;
+    margin: 5px 0 0 0;
+}
+
+.contact-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #E6F7F4;
+}
+
+.contact-section div {
+    display: inline-block;
+    margin: 0 20px;
+    vertical-align: top;
+}
+
+.contact-section i {
+    font-size: 24px;
+    color: #4A90E2;
+}
+
+.contact-section h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.contact-section p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.footer {
+    background-color: #C7C8CA; /* Cinza Claro */
+    color: #4A4A4A; /* Cinza Escuro */
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.footer div {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 20px;
+}
+
+.footer h4 {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.footer p, .footer a {
+    color: #4A4A4A; /* Cinza Escuro */
+    margin: 5px 0;
+    text-decoration: none;
+}
+
+.footer .contact-button {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    border: 2px solid #4A4A4A; /* Cinza Escuro */
+    border-radius: 5px;
+    color: #4A4A4A; /* Cinza Escuro */
+    text-decoration: none;
+}
+
+.footer .enquire-button {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #4A90E2; /* Azul Claro */
+}
+
+.contact-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #F5F7FA; /* Cinza Claro */
+}
+
+.contact-section div {
+    display: inline-block;
+    margin: 0 20px;
+    vertical-align: top;
+}
+
+.contact-section i {
+    font-size: 24px;
+    color: #4A90E2;
+}
+
+.contact-section h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #4A4A4A; /* Cinza Escuro */
+}
+
+.contact-section p {
+    margin: 5px 0;
+    color: #4A4A4A; /* Cinza Escuro */
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    color: #4A4A4A; /* Cinza Escuro */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #4A4A4A; /* Cinza Escuro */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #F5F7FA; /* Cinza Claro */
+}
+
+.auth-links {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.auth-links a {
+    margin: 0 10px;
+    font-weight: 600;
+    color: #FFFFFF; /* Branco para contraste */
+}
+
+.register-btn {
+    background-color: #F5A623; /* Laranja */
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+
+.login-btn {
+    background-color: #4A90E2; /* Azul Claro */
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.left-section {
+    width: 45%;
+}
+
+.left-section h1 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+.left-section p {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.5;
+}
+
+.right-section {
+    width: 45%;
+    background-color: #4A90E2;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.right-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-section form input,
+.right-section form select,
+.right-section form textarea,
+.right-section form button {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.right-section form input,
+.right-section form select,
+.right-section form textarea {
+    width: 100%;
+}
+
+.right-section form button {
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#enviarbtn {
+    display: none;
+}
+  
+#enviarbtn:target {
+    display: block;
+}
+
+.btn {
+    background-color: #4A90E2;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none; 
+}
+
+.reformas-ativas-container {
+    display: none; /* Oculta o container inicialmente */
+}
+  
+#show-reformas:checked ~ .reformas-ativas-container {
+    display: block; /* Mostra o container quando o checkbox é checked */
+}
+    </style>
+    <body>
+        <div class="navbar">
+            <a href="{% url 'Aplicacao:home' %}">
+                <div class="logo">ConectaPop</div>
+              </a>
+            <div class="nav-links">
+                <div class="dropdown">
+                    <a href="#">Status das Reformas</a>
+                    <div class="dropdown-content">
+                        <a href="relatorios-progresso.html">Relatórios de Progresso</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#">Projetos e Oportunidades</a>
+                    <div class="dropdown-content">
+                        <a href="oportunidades-projetos.html">Oportunidades de Projetos</a>
+                        <a href="documentos-projetos.html">Documentos de Projetos</a>
+                    </div>
+                </div>
+                <div class="auth-links">
+                    <a href="{% url 'Aplicacao:home' %}" class="register-btn">Logout</a>
+                </div>
+            </div>
+        </div>    
+        <br><br><br> <br><br><br><br><br>
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Painel do Administrador:<br/>Bem-vindo à área de administração. Aqui você pode gerenciar todas as configurações do sistema.</h1>
+            </div>
+            <div class="hero-image">
+                <img alt="icone de administrador" height="400" src="https://cdn-icons-png.flaticon.com/512/2206/2206368.png"/>
+            </div>
+        </div>
+        <div class="container">
+            <div class="header">
+                <h1>Funcionalidades Disponíveis:</h1>
+            </div>
+            <div class="content">
+                <div class="text">
+                        <p> Geração de Relatórios Detalhados: Como responsável por relatórios em conjunto com um Auditor de qualidade, você pode gerar relatórios detalhados sobre o progresso e impacto das reformas, assegurando transparência e responsabilidade na gestão das obras.
+                    </p>
+                </div>
+                <div class="illustration">
+                    <img alt="engrenagens" height="300" src="https://cdn-icons-png.flaticon.com/256/10645/10645771.png"/>
+                </div>
+            </div>
+            <br><br><br><br>
+        </div>
+        <div class="contact-section">
+            <div>
+                <i class="fas fa-phone-alt"></i>
+                <h3>Número para contato</h3>
+                <p>(81) 99999-9999 </p>
+            </div>
+            <div>
+                <i class="fas fa-envelope"></i>
+                <h3>Email para contato</h3>
+                <p>contato@conectapop.com</p>
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                <h4>Sobre o ConectaPop:</h4>
+                <p>Uma plataforma dedicada ao avanço do ODS 9,
+                <p>promovendo inovação e infraestrutura sustentável.</p>
+              
+            </div>
+            <div>
+                <h4>Contato:</h4>
+                <p>Para dúvidas ou sugestões, entre em contato.</p>
+            
+            </div>
+            <div>
+                <h4>Política de privacidade</h4>
+                <a href="politica-de-priv.html" class="contact-button"></i>Clique aqui</a>
+            </div>
+        </div>
+    </body>
+    </html>

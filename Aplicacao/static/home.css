@@ -6,12 +6,15 @@ body {
 
 .navbar {
     position: fixed;
+    width: 100%; /* Garante que a navbar ocupe toda a largura */
+    left: 0; /* Alinha à esquerda */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
     background-color: #4A90E2; 
     z-index: 2;
+    box-sizing: border-box; /* Inclui padding na largura total */
 }
 
 .nav-links {
