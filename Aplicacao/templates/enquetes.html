@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participar de enquetes</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+    <link rel="icon" href="iconecp.png" type="image/png">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <style>
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            padding: 20px;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .form-container {
+            flex: 1;
+            padding-right: 20px;
+        }
+        .form-container h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #212529;
+        }
+        .form-container p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #6c757d;
+        }
+        .form-group {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #495057;
+        }
+        .btn {
+            background-color: #4A90E2;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'Aplicacao:home' %}">
+            <div class="logo">ConectaPop</div>
+        </a>
+        <div class="nav-links">
+            <div class="dropdown">
+                <a href="#">Relatar e Acompanhar</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'Aplicacao:relatar_problemas' %}">Relatar Ocorrencias</a>
+                    <a href="{% url 'Aplicacao:atualizacoes' %}">Atualizações para Moradores</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Status das Reformas</a>
+                <div class="dropdown-content">
+                    <a href="relatorios-progresso.html">Relatórios de Progresso</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Projetos e Oportunidades</a>
+                <div class="dropdown-content">
+                    <a href="oportunidades-projetos.html">Oportunidades de Projetos</a>
+                    <a href="documentos-projetos.html">Documentos de Projetos</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Mapa e Segurança</a>
+                <div class="dropdown-content">
+                    <a href="mapa-reformas.html">Mapa de Reformas e ver reformas</a>
+                    <a href="alertas-seguranca.html">Alertas de Segurança</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Opinião da Comunidade</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'Aplicacao:enquetes' %}">Participar de Enquetes e Sugestões</a>
+                </div>
+            </div>
+            <div class="auth-links">
+                <a href="registrar.html" class="register-btn">Registrar</a>
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br><br><br>
+    <div class="container">
+        <div class="left-section">
+            <h1>Participar de Enquetes, Feedbacks e Sugestões</h1>
+            <p>Aqui você pode participar de interações com sua comunidade e com as autoridades para melhorias da infraestrutura.
+                Preencha apenas o que achar necessario!
+            </p>
+            <form action="{% url 'Aplicacao:enquetes' %}" method="post">
+                {% csrf_token %}
+                <h3>Digite Aqui sua Mensagem</h3>
+                <label for="nome">Nome:</label><br>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu Nome"><br>
+                <label for="idade">Idade:</label><br>
+                <input type="text" id="idade" name="idade" placeholder="Digite sua Idade"><br>
+                <label for="endereco">Endereço:</label><br>
+                <input type="text" id="endereco" name="endereco" placeholder="Digite seu Endereço"><br><br>
+                <label for="mensagem">Feedback:</label><br>
+                <textarea id="mensagem" name="mensagem" placeholder="Digite seu Feedback"></textarea><br>
+
+                <h3>Participe das Enquetes</h3>
+                <label for="opcao1">Qual é a sua maior preocupação em relação às reformas?</label><br>
+                <select name="opcao1" id="opcao1">
+                    <option value="">Escolha sua opção</option>
+                    <option value="prazo">Prazo de conclusão</option>
+                    <option value="custo">Custo da obra</option>
+                    <option value="impacto">Impacto ambiental</option>
+                    <option value="transparencia">Transparência no processo</option>
+                    <option value="seguranca">Segurança durante a execução</option>
+                </select><br>
+
+                <label for="opcao2">Como você avalia o andamento das reformas em sua cidade?</label><br>
+                <select name="opcao2" id="opcao2">
+                    <option value="">Escolha sua opção</option>
+                    <option value="mtlento">Muito lento</option>
+                    <option value="lento">Lento</option>
+                    <option value="adequado">Adequado</option>
+                    <option value="rapido">Rápido</option>
+                    <option value="mtrapido">Muito Rápido</option>
+                </select><br>
+
+                <label for="opcao3">Você acha que as reformas estão sendo realizadas de acordo com as necessidades da comunidade?</label><br>
+                <select name="opcao3" id="opcao3">
+                    <option value="">Escolha sua opção</option>
+                    <option value="sim">Sim, completamente</option>
+                    <option value="parcialmente">Parcialmente</option>
+                    <option value="nao">Não, falta planejamento</option>
+                    <option value="nao_desnecessarias">Não, são desnecessárias</option>
+                </select><br><br>
+
+                <button class="btn">ENVIAR</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
