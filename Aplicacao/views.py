@@ -1,9 +1,12 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.views import View
+from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Relatar, Enquetes
 from .models import Relatorio
+from .models import Violacao
+from django.db.models import Q 
 from django.contrib.auth import authenticate, login as auth_login
 from django.http import JsonResponse
 
@@ -159,6 +162,34 @@ class DeletarRelatorio(View):
         relatorio = get_object_or_404(Relatorio, id=relatorio_id)
         relatorio.delete()
         return redirect('Aplicacao:relatorio_progresso')
+
+def alerta_seguranca(request):
+    if request.method == 'POST':
+        endereco = request.POST.get('endereco')
+        servico = request.POST.get('servico')
+        violacao = request.POST.get('violacao')
+
+        nova_violacao = Violacao(endereco=endereco, servico=servico, violacao=violacao)
+        nova_violacao.save()
+
+        return redirect('Aplicacao:alerta_seguranca')  
+
+    
+    busca = request.GET.get('busca', '')
+    if busca:
+        historico = Violacao.objects.filter(
+            Q(endereco__icontains=busca) | Q(servico__icontains=busca)
+        )
+    else:
+        historico = Violacao.objects.all()
+
+    return render(request, 'alerta_seguranca.html', {'historico': historico})
+
+
+def deletar_violacao(request, id):
+    violacao = get_object_or_404(Violacao, id=id)
+    violacao.delete()
+    return redirect('Aplicacao:alerta_seguranca')
 
 def cleanup_db(request): #Deletando do banco de dados o teste da historia 1
     Relatar.objects.filter(titulo='Teste de Problema', cep='50080160').delete()

@@ -29,3 +29,12 @@ class Relatorio(models.Model):
 
     def _str_(self):
         return self.titulo
+
+class Violacao(models.Model):
+    endereco = models.CharField(max_length=300, blank=False)
+    servico = models.CharField(max_length=255, blank=False)
+    violacao = models.TextField()
+    data_registro = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Violação em {self.endereco} - {self.servico}"

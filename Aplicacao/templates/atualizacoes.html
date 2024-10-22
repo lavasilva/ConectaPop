@@ -157,50 +157,43 @@
             color: #dc3545; 
             margin-top: 20px;
         }
+
+        
+
+
+
     </style>
 </head>
 <body>
     <div class="navbar">
-        <a href="{% url 'Aplicacao:home' %}">
+        <a href="{% url 'Aplicacao:home' %}" class="navbar-container">
             <div class="logo">ConectaPop</div>
         </a>
         <div class="nav-links">
             <div class="dropdown">
                 <a href="#">Relatar e Acompanhar</a>
                 <div class="dropdown-content">
-                    <a href="{% url 'Aplicacao:relatar_problemas' %}">Relatar Ocorrencias</a>
+                    <a href="{% url 'Aplicacao:relatar_problemas' %}">Relatar Problemas</a>
                     <a href="{% url 'Aplicacao:atualizacoes' %}">Atualizações para Moradores</a>
                 </div>
             </div>
-            <div class="dropdown">
-                <a href="#">Status das Reformas</a>
-                <div class="dropdown-content">
-                    <a href="relatorios-progresso.html">Relatórios de Progresso</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <a href="#">Projetos e Oportunidades</a>
-                <div class="dropdown-content">
-                    <a href="oportunidades-projetos.html">Oportunidades de Projetos</a>
-                    <a href="documentos-projetos.html">Documentos de Projetos</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <a href="#">Mapa e Segurança</a>
-                <div class="dropdown-content">
-                    <a href="mapa-reformas.html">Mapa de Reformas e ver reformas</a>
-                    <a href="alertas-seguranca.html">Alertas de Segurança</a>
-                </div>
-            </div>
+
             <div class="dropdown">
                 <a href="#">Opinião da Comunidade</a>
                 <div class="dropdown-content">
                     <a href="{% url 'Aplicacao:enquetes' %}">Participar de Enquetes e Sugestões</a>
                 </div>
             </div>
+            <div class="dropdown">
+                <a href="#">Mapa e Segurança</a>
+                <div class="dropdown-content">
+                    <a href="mapa-reformas.html">Mapa de Reformas e ver reformas</a>
+                    <a href="{% url 'Aplicacao:alerta_seguranca' %}">Alertas de Segurança</a>
+                </div>
+            </div>
             <div class="auth-links">
-                <a href="{% url 'Aplicacao:registro' %}" class="register-btn">Registrar</a>
-                <a href="{% url 'Aplicacao:login' %}" class="login-btn">Login</a>
+                <a href="{% url 'Aplicacao:registro' %}" class="register-btn">Registrar como ADM</a>
+                <a href="{% url 'Aplicacao:login' %}" class="login-btn">Login como ADM</a>
             </div>
         </div>
     </div>

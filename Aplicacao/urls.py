@@ -13,8 +13,11 @@ urlpatterns = [
     path('home_adm/', views.HomeAdmView.as_view(), name='home_adm'),
     path('relatorio_progresso/', views.relatorio_progresso.as_view(), name='relatorio_progresso'),
     path('deletar_relatorio/<int:relatorio_id>/', views.DeletarRelatorio.as_view(), name='deletar_relatorio'),
+    path('alerta_seguranca/', views.alerta_seguranca, name='alerta_seguranca'),
+    path('deletar_violacao/<int:id>/', views.deletar_violacao, name='deletar_violacao'),
 ]
 
 urlpatterns += [
     path('cleanup_db/', views.cleanup_db, name='cleanup_db'), # Rota de limpeza para o banco de dados!
 ]
+
