@@ -1,8 +1,9 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.views import View
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Relatar, Enquetes
+from .models import Relatorio
 from django.contrib.auth import authenticate, login as auth_login
 
 class HomeView(View):
@@ -13,7 +14,7 @@ class HomeAdmView(View):
     def get(self, request):
         return render(request, 'home_adm.html')
 
-class relatar_problemas(View):  # Se o nome da classe for diferente, ajuste aqui
+class relatar_problemas(View):  
     def get(self, request):
         return render(request, 'relatar_problemas.html')
 
@@ -86,13 +87,13 @@ class login(View):
         email = request.POST.get('email')
         senha = request.POST.get('senha')
         
-        # Autentica o usuário
+        
         user = authenticate(request, username=email, password=senha)
         
         if user is not None:
-            # Se a autenticação for bem-sucedida, faz login
+            
             auth_login(request, user)
-            return redirect('Aplicacao:home_adm')  # Redireciona para a página inicial
+            return redirect('Aplicacao:home_adm')  
         else:
             messages.error(request, "Email ou senha incorretos.")
             return redirect('Aplicacao:login')
@@ -107,17 +108,17 @@ class RegistroView(View):
         senha = request.POST.get('senha')
         confirmar_senha = request.POST.get('confirmar_senha')
 
-        # Verifica se o email termina com "@conecta.pop"
+        
         if not email.endswith('@conecta.pop'):
             messages.error(request, "O email deve terminar com '@conecta.pop'.")
             return redirect('Aplicacao:registro')
 
-        # Verifica se as senhas são iguais
+        
         if senha != confirmar_senha:
             messages.error(request, "As senhas não coincidem.")
             return redirect('Aplicacao:registro')
 
-        # Criação do usuário
+        
         try:
             user = User.objects.create_user(username=email, email=email, password=senha)
             user.first_name = nome
@@ -127,3 +128,33 @@ class RegistroView(View):
         except Exception as e:
             messages.error(request, "Erro ao registrar. Tente novamente.")
             return redirect('Aplicacao:registro')
+        
+class relatorio_progresso(View):
+    def get(self, request):
+        relatorios = Relatorio.objects.all()  
+        return render(request, 'relatorio_progresso.html', {'relatorios': relatorios})
+
+    def post(self, request):
+        titulo = request.POST.get('tituloRelatorio')
+        descricao = request.POST.get('descricaoProgresso')
+        data = request.POST.get('dataRelatorio')
+        status = request.POST.get('statusProjeto')
+        validacao = request.POST.get('validacaoRelatorio')
+        comentarios = request.POST.get('comentariosAuditor')
+
+        relatorio = Relatorio(
+            titulo=titulo,
+            descricao=descricao,
+            data=data,
+            status=status,
+            validacao=validacao,
+            comentarios=comentarios
+        )
+        relatorio.save()
+        return redirect('Aplicacao:relatorio_progresso')
+
+class DeletarRelatorio(View):
+    def post(self, request, relatorio_id):
+        relatorio = get_object_or_404(Relatorio, id=relatorio_id)
+        relatorio.delete()
+        return redirect('Aplicacao:relatorio_progresso')

@@ -11,5 +11,6 @@ urlpatterns = [
     path('login/', views.login.as_view(), name='login'),
     path('registro/', views.RegistroView.as_view(), name='registro'),
     path('home_adm/', views.HomeAdmView.as_view(), name='home_adm'),
-
+    path('relatorio_progresso/', views.relatorio_progresso.as_view(), name='relatorio_progresso'),
+    path('deletar_relatorio/<int:relatorio_id>/', views.DeletarRelatorio.as_view(), name='deletar_relatorio'),
 ]

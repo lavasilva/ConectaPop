@@ -18,3 +18,14 @@ class Enquetes(models.Model):
     opcao1 = models.CharField(max_length=100, blank=True, null=True)
     opcao2 = models.CharField(max_length=100, blank=True, null=True)
     opcao3 = models.CharField(max_length=100, blank=True, null=True)
+
+class Relatorio(models.Model):
+    titulo = models.CharField(max_length=200)
+    descricao = models.TextField()
+    data = models.DateField()
+    status = models.CharField(max_length=50)
+    validacao = models.CharField(max_length=50)
+    comentarios = models.TextField(blank=True)
+
+    def _str_(self):
+        return self.titulo
