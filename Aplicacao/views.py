@@ -5,6 +5,7 @@ from django.contrib import messages
 from .models import Relatar, Enquetes
 from .models import Relatorio
 from django.contrib.auth import authenticate, login as auth_login
+from django.http import JsonResponse
 
 class HomeView(View):
     def get(self, request):
@@ -158,3 +159,7 @@ class DeletarRelatorio(View):
         relatorio = get_object_or_404(Relatorio, id=relatorio_id)
         relatorio.delete()
         return redirect('Aplicacao:relatorio_progresso')
+
+def cleanup_db(request): #Deletando do banco de dados o teste da historia 1
+    Relatar.objects.filter(titulo='Teste de Problema', cep='50080160').delete()
+    return JsonResponse({'status': 'specific data cleaned'})
