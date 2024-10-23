@@ -353,6 +353,7 @@
                     {% for violacao in historico %}
                         <div class="historico-item">
                             <h4>Local: {{ violacao.endereco }}</h4>
+                            <h4>Serviço: {{ violacao.servico }}</h4>
                             <h4>Data: {{ violacao.data_registro|date:"d/m/Y" }}</h4>
                             <h4>Violação: {{ violacao.violacao }}</h4>
                             <form method="POST" action="{% url 'Aplicacao:deletar_violacao' violacao.id %}" style="display:inline;">
