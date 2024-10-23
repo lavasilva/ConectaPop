@@ -21,3 +21,6 @@ urlpatterns += [
     path('cleanup_db/', views.cleanup_db, name='cleanup_db'), # Rota de limpeza para o banco de dados!
 ]
 
+urlpatterns += [
+    path('limpar_problemas/', views.limpar_problemas, name='limpar_problemas'),
+]

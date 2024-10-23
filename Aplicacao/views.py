@@ -194,3 +194,10 @@ def deletar_violacao(request, id):
 def cleanup_db(request): #Deletando do banco de dados o teste da historia 1
     Relatar.objects.filter(titulo='Teste de Problema', cep='50080160').delete()
     return JsonResponse({'status': 'specific data cleaned'})
+
+def limpar_problemas(request):
+    endereco = request.GET.get('endereco', None)
+    if endereco:
+        Relatar.objects.filter(endereco=endereco).delete()
+        return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'no address provided'}, status=400)
