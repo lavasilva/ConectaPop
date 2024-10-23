@@ -157,11 +157,6 @@
             color: #dc3545; 
             margin-top: 20px;
         }
-
-        
-
-
-
     </style>
 </head>
 <body>
@@ -207,7 +202,7 @@
                     <label for="endereco">Endereço:</label>
                     <input type="text" id="endereco" name="endereco" placeholder="Digite seu Endereço" required>
                 </div>
-                <button class="btn">Verificar Ocorrencia</button>
+                <button class="btn">Verificar Ocorrência</button>
             </form>
         </div>
 
@@ -237,8 +232,9 @@
                 <div class="descricao-box">{{ problema.descricao }}</div>
             </div>
         {% elif mensagem %}
-            <p class="no-problem-message">{{ mensagem }}</p>
-        {% endif %}
+    <p class="no-problem-message">{{ mensagem }}</p>
+{% endif %}
+
 
         <div>
             <a href="{% url 'Aplicacao:home' %}" class="btn">Voltar para a Página Inicial</a>
