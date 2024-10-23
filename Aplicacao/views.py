@@ -75,13 +75,21 @@ class enquetes(View):
 class atualizacoes(View):
     def get(self, request):
         endereco = request.GET.get('endereco')
-        problema = Relatar.objects.filter(endereco=endereco).first()
+        mensagem = None  # Inicialize a mensagem como None
 
-        if problema:
-            return render(request, 'atualizacoes.html', {'problema': problema})
-        else:
-            mensagem = "O endereço informado não possui ocorrências de problemas."
-            return render(request, 'atualizacoes.html', {'mensagem': mensagem})
+        if endereco:  # Verifique se o endereço foi fornecido
+            problema = Relatar.objects.filter(endereco=endereco).first()
+            
+            if problema:
+                # Se houver um problema encontrado, renderiza a página com o problema.
+                return render(request, 'atualizacoes.html', {'problema': problema})
+            else:
+                # Se não houver problema, define a mensagem.
+                mensagem = "O endereço informado não possui ocorrências de problemas."
+
+        # Renderiza a página com a mensagem apenas se o endereço foi fornecido
+        return render(request, 'atualizacoes.html', {'mensagem': mensagem})
+
 
 class login(View):
     def get(self, request):
