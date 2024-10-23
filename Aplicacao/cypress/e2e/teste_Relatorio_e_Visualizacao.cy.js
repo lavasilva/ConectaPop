@@ -1,5 +1,9 @@
 
 describe('Teste da historia 4', () => {
+
+  beforeEach(() => {
+    cy.request('GET', 'http://127.0.0.1:8000/cleanup_db/');
+  });
     
   const cleanupAndSetupData = () => {
       
@@ -11,39 +15,30 @@ describe('Teste da historia 4', () => {
         cy.visit('http://127.0.0.1:8000/registro'); 
         cy.wait(1000);
         cy.get('[type="text"]').type('Lavinia');
-        cy.wait(1000);
         cy.get('[type="email"]').type('laviniamsilva@conecta.pop');
-        cy.wait(1000);
         cy.get('[name="senha"]').type('1234');
-        cy.wait(1000); 
         cy.get('[name="confirmar_senha"]')
           .should('not.be.disabled') 
           .type('1234');        
+        cy.wait(1000);
         cy.get('.register-button').click();
 
         //login 
         cy.visit('http://127.0.0.1:8000/login'); 
         cy.get('[type="text"]').type('laviniamsilva@conecta.pop');
-        cy.wait(1000);
         cy.get('[type="password"]').type('1234');
         cy.wait(1000);
         cy.get('.login-button').click();
-        cy.wait(2000);
 
         // relatorios
         cy.visit('http://127.0.0.1:8000/home_adm/');
         cy.wait(1000);
         cy.visit('http://127.0.0.1:8000/relatorio_progresso/');
         cy.get('#tituloRelatorio').type('Pavimentação da Rua Alfredo de Carvalho.');
-        cy.wait(1000);
         cy.get('#descricaoProgresso').type('Funcionários trabalhando 3h por noite. Esperada a finalização em 3 dias úteis.');
-        cy.wait(1000);
         cy.get('#dataRelatorio').type('2024-10-20');
-        cy.wait(1000);
         cy.get('#statusProjeto').select('Em Progresso');
-        cy.wait(1000);
         cy.get('#validacaoRelatorio').select('Aprovado');
-        cy.wait(1000);
         cy.get('#comentariosAuditor').type('Progresso está muito lento; poucos funcionários disponibilizados.');
         cy.wait(1000);
         cy.get('[action="/relatorio_progresso/"] > .btn').click();
@@ -51,15 +46,10 @@ describe('Teste da historia 4', () => {
 
         cy.visit('http://127.0.0.1:8000/relatorio_progresso/');
         cy.get('#tituloRelatorio').type('Repavimentação na Av. João de Barros.');
-        cy.wait(1000);
         cy.get('#descricaoProgresso').type('Esperada a finalização em 2 dias úteis.');
-        cy.wait(1000);
         cy.get('#dataRelatorio').type('2024-10-20');
-        cy.wait(1000);
         cy.get('#statusProjeto').select('Pendente');
-        cy.wait(1000);
         cy.get('#validacaoRelatorio').select('Em Revisão');
-        cy.wait(1000);
         cy.get('#comentariosAuditor').type('Progresso está muito lento; poucos funcionários disponibilizados.');
         cy.wait(1000);
         cy.get('[action="/relatorio_progresso/"] > .btn').click();
@@ -68,13 +58,13 @@ describe('Teste da historia 4', () => {
         .should('exist')
         .and('be.visible')
         .click();   
-        cy.wait(3000);
+        cy.wait(2000);
         cy.get(':nth-child(2) > :nth-child(2) > details > summary')
         .should('exist')
         .and('be.visible')
         .click();      
         cy.get(':nth-child(2) > :nth-child(2) > form > .btn').click();
-        cy.wait(5000);
+        cy.wait(2000);
 
       });
   };
@@ -98,7 +88,7 @@ describe('Teste da historia 4', () => {
       .should('not.be.disabled') 
       .type('1234');        
     cy.get('.register-button').click();
-    cy.wait(5000);
+    cy.wait(2000);
   });
 
   it('cenario3 - registrando usuario com dados com e-mail invalido', () => {
@@ -116,7 +106,7 @@ describe('Teste da historia 4', () => {
       .should('not.be.disabled') 
       .type('1234');        
     cy.get('.register-button').click();
-    cy.wait(5000);
+    cy.wait(2000);
   });
 
   it('cenario3.2 - registrando usuario com dados sem email', () => {
@@ -132,7 +122,7 @@ describe('Teste da historia 4', () => {
       .should('not.be.disabled') 
       .type('1234');        
     cy.get('.register-button').click();
-    cy.wait(5000);
+    cy.wait(2000);
   });
 
   it('cenario4 - registrando usuario com dados sem senha', () => {
@@ -145,7 +135,7 @@ describe('Teste da historia 4', () => {
     cy.get('[type="email"]').type('laviniamsilva@conecta.pop');
     cy.wait(200);       
     cy.get('.register-button').click();
-    cy.wait(5000);
+    cy.wait(2000);
   });
 
   it('cenario5 - registrando usuario com dados com senhas que nao coincidem', () => {
@@ -163,7 +153,7 @@ describe('Teste da historia 4', () => {
       .should('not.be.disabled') 
       .type('11111111');        
     cy.get('.register-button').click();
-    cy.wait(5000);
+    cy.wait(2000);
   });
 
   // testes de login ---------------------
@@ -192,7 +182,7 @@ describe('Teste da historia 4', () => {
     cy.get('[type="password"]').type('1234');
     cy.wait(200);
     cy.get('.login-button').click();
-    cy.wait(5000);
+    cy.wait(2000);
   });
 
   it('cenario7 - logando com senha incorreta', () => {
@@ -219,7 +209,7 @@ describe('Teste da historia 4', () => {
     cy.get('[type="password"]').type('5672');
     cy.wait(200);
     cy.get('.login-button').click();
-    cy.wait(5000);
+    cy.wait(2000);
   });
 
   // testes de registro
@@ -229,17 +219,13 @@ describe('Teste da historia 4', () => {
         cy.wait(1000);
         cy.visit('http://127.0.0.1:8000/relatorio_progresso/');
         cy.get('#descricaoProgresso').type('Funcionários trabalhando 3h por noite. Esperada a finalização em 3 dias úteis.');
-        cy.wait(1000);
         cy.get('#dataRelatorio').type('2024-10-20');
-        cy.wait(1000);
         cy.get('#statusProjeto').select('Em Progresso');
-        cy.wait(1000);
         cy.get('#validacaoRelatorio').select('Aprovado');
-        cy.wait(1000);
         cy.get('#comentariosAuditor').type('Progresso está muito lento; poucos funcionários disponibilizados.');
         cy.wait(1000);
         cy.get('[action="/relatorio_progresso/"] > .btn').click();
-        cy.wait(5000);
+        cy.wait(2000);
   });
 
   it('cenario9 - registro de relatorio sem data', () => {
@@ -247,17 +233,13 @@ describe('Teste da historia 4', () => {
     cy.wait(1000);
     cy.visit('http://127.0.0.1:8000/relatorio_progresso/');
     cy.get('#tituloRelatorio').type('Pavimentação da Rua Alfredo de Carvalho.');
-    cy.wait(1000);
     cy.get('#descricaoProgresso').type('Funcionários trabalhando 3h por noite. Esperada a finalização em 3 dias úteis.');
-    cy.wait(1000);
     cy.get('#statusProjeto').select('Em Progresso');
-    cy.wait(1000);
     cy.get('#validacaoRelatorio').select('Aprovado');
-    cy.wait(1000);
     cy.get('#comentariosAuditor').type('Progresso está muito lento; poucos funcionários disponibilizados.');
     cy.wait(1000);
     cy.get('[action="/relatorio_progresso/"] > .btn').click();
-    cy.wait(5000);
+    cy.wait(2000);
   });
 
   it('cenario11 - registro de relatorio sem status de progresso', () => {
@@ -265,17 +247,13 @@ describe('Teste da historia 4', () => {
     cy.wait(1000);
     cy.visit('http://127.0.0.1:8000/relatorio_progresso/');
     cy.get('#tituloRelatorio').type('Pavimentação da Rua Alfredo de Carvalho.');
-    cy.wait(1000);
     cy.get('#descricaoProgresso').type('Funcionários trabalhando 3h por noite. Esperada a finalização em 3 dias úteis.');
-    cy.wait(1000);
     cy.get('#dataRelatorio').type('2024-10-20');
-    cy.wait(1000);
     cy.get('#validacaoRelatorio').select('Aprovado');
-    cy.wait(1000);
     cy.get('#comentariosAuditor').type('Progresso está muito lento; poucos funcionários disponibilizados.');
     cy.wait(1000);
     cy.get('[action="/relatorio_progresso/"] > .btn').click();
-    cy.wait(5000);
+    cy.wait(2000);
   });
 
   it('cenario12 - registro de relatorio sem validacao', () => {
@@ -283,17 +261,13 @@ describe('Teste da historia 4', () => {
     cy.wait(1000);
     cy.visit('http://127.0.0.1:8000/relatorio_progresso/');
     cy.get('#tituloRelatorio').type('Pavimentação da Rua Alfredo de Carvalho.');
-    cy.wait(1000);
     cy.get('#descricaoProgresso').type('Funcionários trabalhando 3h por noite. Esperada a finalização em 3 dias úteis.');
-    cy.wait(1000);
     cy.get('#dataRelatorio').type('2024-10-20');
-    cy.wait(1000);
     cy.get('#statusProjeto').select('Em Progresso');
-    cy.wait(1000);
     cy.get('#comentariosAuditor').type('Progresso está muito lento; poucos funcionários disponibilizados.');
     cy.wait(1000);
     cy.get('[action="/relatorio_progresso/"] > .btn').click();
-    cy.wait(5000);
+    cy.wait(2000);
   });
 
 });

@@ -16,7 +16,9 @@ describe('teste da historia 1', () => {
             cy.get('#opcao1').select('Custo da obra');
             cy.get('#opcao2').select('Lento');
             cy.get('#opcao3').select('Parcialmente');
-            cy.get('.btn').click(); 
+            cy.wait(2000);
+            cy.get('.btn').click();
+
         });
     };
 
@@ -35,6 +37,7 @@ describe('teste da historia 1', () => {
         cy.get('#opcao1').select('Custo da obra');
         cy.get('#opcao2').select('Lento');
         cy.get('#opcao3').select('Parcialmente');
+        cy.wait(2000);
         cy.get('.btn').click();
 
 
@@ -52,7 +55,9 @@ describe('teste da historia 1', () => {
         cy.get('#opcao1').select('Custo da obra');
         cy.get('#opcao2').select('Lento');
         cy.get('#opcao3').select('Parcialmente');
-        cy.get('.btn').click(); 
+        cy.wait(2000);
+        cy.get('.btn').click();
+        
 
     })
 
@@ -67,7 +72,9 @@ describe('teste da historia 1', () => {
         cy.get('#opcao1').select('Custo da obra');
         cy.get('#opcao2').select('Lento');
         cy.get('#opcao3').select('Parcialmente');
-        cy.get('.btn').click(); 
+        cy.wait(2000);
+        cy.get('.btn').click();
+        
     })
 
 

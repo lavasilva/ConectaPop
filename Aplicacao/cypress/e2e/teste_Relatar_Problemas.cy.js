@@ -23,6 +23,7 @@ describe('teste da historia 1', () => {
             cy.get('#estado').type('Estado exemplo');
             cy.get('#cep').type('50080160');
             cy.get('#foto').type('http://exemplo.com/imagem.jpg');
+            cy.wait(2000);
             cy.get('.btn').click(); 
         });
     };
@@ -43,6 +44,7 @@ describe('teste da historia 1', () => {
         cy.get('#estado').type('Estado exemplo 2');
         cy.get('#cep').type('50080160');
         cy.get('#foto').type('http://exemplo.com/imagem.jpg');
+        cy.wait(2000);
         cy.get('.btn').click();
 
 
@@ -60,6 +62,7 @@ describe('teste da historia 1', () => {
         cy.get('#cidade').type('Cidade exemplo 3');
         cy.get('#estado').type('Estado exemplo 3');
         cy.get('#foto').type('http://exemplo.com/imagem.jpg');
+        cy.wait(2000);
         cy.get('.btn').click();
 
     })
@@ -74,6 +77,7 @@ describe('teste da historia 1', () => {
         cy.get('select').select('buracos');
         cy.get('#cep').type('50080160');
         cy.get('#foto').type('http://exemplo.com/imagem.jpg');
+        cy.wait(2000);
         cy.get('.btn').click();
 
     })
@@ -91,6 +95,7 @@ describe('teste da historia 1', () => {
             cy.get('#estado').type('Estado exemplo 5');
             cy.get('#cep').type('5000160');
             cy.get('#foto').type('http://exemplo.com/imagem.jpg');
+            cy.wait(2000);
             cy.get('.btn').click(); 
     })
 
