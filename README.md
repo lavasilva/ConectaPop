@@ -63,9 +63,31 @@ Lavinia Maranhão
   </details>
 
   <details>
-    <summary>Entrega 3</summary>
-    <br>
-    <p><strong> Em construção...🔧🔨 </strong></p>
+   <summary>Entrega 3</summary>
+   <br>
+ <p><strong>Histórias Implementadas:</strong> A seleção de histórias implementadas no projeto pode ser vista <a href="https://docs.google.com/document/d/1p4dzkl2WDimftVmF-tQC61QsBuUz4zVI2OSkEtJeIGc/edit?usp=sharing" target="_blank">neste link</a>.</p>
+<br>
+
+<p><strong>Protótipo de Lo Fi atualizado:</strong> O protótipo de baixa fidelidade pode ser visualizado <a href="https://www.figma.com/design/Qab1UVomdm80XcZu2h5VZ9/Storyboards?node-id=0-1&t=IPEg7XQTIVb3J7oF-1" target="_blank">neste link</a>. Um screencast do protótipo está disponível <a href="https://youtu.be/aZYobkuMKU0?si=7tv2awh5RyDd_h-d" target="_blank">neste link</a>.</p>
+<br>
+
+<p><strong>Sketches e storyboards para as novas histórias:</strong> Os materiais visuais, incluindo sketches e storyboards que acompanham as novas histórias, podem ser acessados <a href="https://www.canva.com/design/DAGUY6JBm5g/AIWOiv4j608n41KCZvP2QQ/edit?utm_content=DAGUY6JBm5g&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">neste link</a>.</p>
+<br>
+
+<p><strong>Deployment:</strong></p>
+<p>O site está em deploy e pode ser acessado <a href="https://conectapop2.azurewebsites.net/" target="_blank">aqui</a>. O screencast pode ser visto <a href="https://youtu.be/CNq7ECpMyog?si=RcHsw-V1p6XWwrwz" target="_blank">neste link</a>.</p>
+<br>
+
+<p><strong>Testes de Sistema Automatizados:</strong> Os testes de sistema automatizados foram realizados para garantir a qualidade do software. Um screencast da execução dos testes está disponível <a href="https://www.youtube.com/watch?v=lZ2I71Ppvuc" target="_blank">neste link</a>.</p>
+<br>
+
+<p><strong>Print do quadro e do Backlog:</strong></p>
+<br>
+<img width="917" alt="print sprint2 " src="https://github.com/user-attachments/assets/cf84084c-2191-4585-8814-32443799a503">
+<br>
+<img width="917" alt="Backlog" src="https://github.com/user-attachments/assets/a5b8cc46-b8ab-4ea8-84b6-00b72d26798b">
+
+
   </details>
   
   <details>
