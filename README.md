@@ -65,7 +65,7 @@ Lavinia Maranhão
   <details>
    <summary>Entrega 3</summary>
    <br>
- <p><strong>Histórias Implementadas:</strong> A seleção de histórias implementadas no projeto pode ser vista <a href="https://docs.google.com/document/d/1p4dzkl2WDimftVmF-tQC61QsBuUz4zVI2OSkEtJeIGc/edit?usp=sharing" target="_blank">neste link</a>.</p>
+ <p><strong>Histórias Implementadas:</strong> A seleção de histórias implementadas na terceira entrega pode ser vista <a href="https://docs.google.com/document/d/1p4dzkl2WDimftVmF-tQC61QsBuUz4zVI2OSkEtJeIGc/edit?usp=sharing" target="_blank">neste link</a>.</p>
 <br>
 
 <p><strong>Protótipo de Lo Fi atualizado:</strong> O protótipo de baixa fidelidade pode ser visualizado <a href="https://www.figma.com/design/Qab1UVomdm80XcZu2h5VZ9/Storyboards?node-id=0-1&t=IPEg7XQTIVb3J7oF-1" target="_blank">neste link</a>. Um screencast do protótipo está disponível <a href="https://youtu.be/aZYobkuMKU0?si=7tv2awh5RyDd_h-d" target="_blank">neste link</a>.</p>
