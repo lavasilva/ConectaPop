@@ -10,6 +10,7 @@ from django.db.models import Q
 from django.contrib.auth import authenticate, login as auth_login
 from django.http import JsonResponse
 
+
 class HomeView(View):
     def get(self, request):
         return render(request, 'home.html')
@@ -209,3 +210,49 @@ def limpar_problemas(request):
         Relatar.objects.filter(endereco=endereco).delete()
         return JsonResponse({'status': 'success'})
     return JsonResponse({'status': 'no address provided'}, status=400)
+
+class OportunidadeProjetos(View):
+    def get(self, request):
+        # Aqui você pode carregar os projetos do banco de dados, se necessário
+        projects = [
+            {
+                'title': 'Reforma do Parque do Centro',
+                'description': 'Reforma completa do Parque do Centro, incluindo áreas de lazer, playground e melhorias nas trilhas.',
+                'deadline': '30 de Abril de 2024',
+                'criteria': 'Experiência comprovada em projetos similares, prazo de execução, orçamento competitivo.',
+                'instructions': [
+                    'Anexe os documentos necessários, como portfólio e comprovação de experiência.',
+                    'Envie sua candidatura até a data limite através do e-mail licitacoes@conectapop.com.',
+                ]
+            },
+            {
+                'title': 'Projeto de Ampliação da Biblioteca Municipal',
+                'description': 'Ampliação da Biblioteca Municipal para incluir novas salas de leitura, áreas de estudo e tecnologia.',
+                'deadline': '15 de Maio de 2024',
+                'criteria': 'Qualidade do projeto, sustentabilidade, prazo de execução.',
+                'instructions': [
+                    'Envie o plano de projeto e orçamento detalhado.',
+                    'Confirme sua inscrição através do e-mail licitacoes@conectapop.com.',
+                ]
+            },
+            {
+                'title': 'Projeto de Ampliação de Vias',
+                'description': 'Ampliação das vias para mais conforto e minimizar o congestionamento intenso na região.',
+                'deadline': '25 de Novembro de 2024',
+                'criteria': 'Qualidade do projeto, minimizar danos, prazo de execução.',
+                'instructions': [
+                    'Envie seu currículo e orçamento detalhado.',
+                    'Confirme sua inscrição através do e-mail licitacoes@conectapop.com.',
+                ]
+            },
+        ]
+        
+        return render(request, 'oportunidade_projetos.html', {'projects': projects})
+    
+class DocumentosProjetos(View):
+    def get(self, request):
+        return render(request, 'documentos_projetos.html')
+    
+class StatusReformas(View):
+    def get(self, request):
+        return render(request, 'status_reformas.html')

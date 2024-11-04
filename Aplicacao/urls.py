@@ -1,5 +1,8 @@
 from django.urls import path
 from . import views
+from .views import OportunidadeProjetos
+from .views import DocumentosProjetos
+from .views import StatusReformas
 
 app_name = 'Aplicacao'
 
@@ -15,6 +18,9 @@ urlpatterns = [
     path('deletar_relatorio/<int:relatorio_id>/', views.DeletarRelatorio.as_view(), name='deletar_relatorio'),
     path('alerta_seguranca/', views.alerta_seguranca, name='alerta_seguranca'),
     path('deletar_violacao/<int:id>/', views.deletar_violacao, name='deletar_violacao'),
+    path('oportunidade_projetos/', OportunidadeProjetos.as_view(), name='oportunidade_projetos'),
+    path('documentos_projetos/', DocumentosProjetos.as_view(), name='documentos_projetos'),
+    path('status_reformas/', StatusReformas.as_view(), name='status_reformas'),
 ]
 
 urlpatterns += [
