@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Relatório - ConectaPop</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+    <link rel="icon" href="iconecp.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>{{ relatorio.titulo }}</h1>
+    <p>Status: {{ relatorio.status }}</p>
+    <p>Data: {{ relatorio.data }}</p>
+    <p>Descrição: {{ relatorio.descricao }}</p>
+    <p>Validação: {{ relatorio.validacao }}</p>
+    <p>Comentários: {{ relatorio.comentarios }}</p>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="{% url 'Aplicacao:home' %}" class="navbar-container">
+            <div class="logo">ConectaPop</div>
+        </a>
+        <div class="nav-links">
+            <a href="{% url 'Aplicacao:status_reformas' %}">Voltar para Status de Reformas</a>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <section class="detalhes-relatorio">
+            <h1>{{ relatorio.titulo }}</h1>
+            <p><strong>Status:</strong> {{ relatorio.status }}</p>
+            <p><strong>Data:</strong> {{ relatorio.data|date:"d/m/Y" }}</p>
+            <p><strong>Validação:</strong> {{ relatorio.validacao }}</p>
+            <p><strong>Descrição:</strong> {{ relatorio.descricao }}</p>
+            {% if relatorio.comentarios %}
+                <div class="comentarios">
+                    <h2>Comentários:</h2>
+                    <p>{{ relatorio.comentarios }}</p>
+                </div>
+            {% else %}
+                <p><em>Sem comentários adicionais.</em></p>
+            {% endif %}
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="footer-content">
+        </div>
+    </footer>
+
+    <style>
+        /* Estilos para os detalhes do relatório */
+        .detalhes-relatorio {
+            background-color: #f4f4f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .detalhes-relatorio h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .detalhes-relatorio p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .comentarios {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .comentarios h2 {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .navbar, .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar a, .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</body>
+</html>

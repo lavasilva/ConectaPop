@@ -21,6 +21,8 @@ urlpatterns = [
     path('oportunidade_projetos/', OportunidadeProjetos.as_view(), name='oportunidade_projetos'),
     path('documentos_projetos/', DocumentosProjetos.as_view(), name='documentos_projetos'),
     path('status_reformas/', StatusReformas.as_view(), name='status_reformas'),
+    path('detalhes_relatorio/<int:relatorio_id>/', views.DetalhesRelatorio.as_view(), name='detalhes_relatorio'),
+
 ]
 
 urlpatterns += [

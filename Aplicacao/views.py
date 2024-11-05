@@ -255,4 +255,10 @@ class DocumentosProjetos(View):
     
 class StatusReformas(View):
     def get(self, request):
-        return render(request, 'status_reformas.html')
+        relatorios = Relatorio.objects.all()  # Recupera todos os relatórios de progresso
+        return render(request, 'status_reformas.html', {'relatorios': relatorios})
+
+class DetalhesRelatorio(View):
+    def get(self, request, relatorio_id):
+        relatorio = get_object_or_404(Relatorio, id=relatorio_id)
+        return render(request, 'detalhes_relatorio.html', {'relatorio': relatorio})

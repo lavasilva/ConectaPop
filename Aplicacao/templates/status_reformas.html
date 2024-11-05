@@ -276,6 +276,7 @@ button.btn:hover {
             <p>Visualize o status das reformas para ajudar no planejamento de melhorias.</p>
         </div>
 
+
         <div class="tabela-reformas">
             <table>
                 <thead>
@@ -286,21 +287,17 @@ button.btn:hover {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Reforma Rua Sol</td>
-                        <td>Em Andamento</td>
-                        <td><button class="btn-info">Ver Mais</button></td>
-                    </tr>
-                    <tr>
-                        <td>Buraco rua Lua</td>
-                        <td>Concluída</td>
-                        <td><button class="btn-info">Ver Mais</button></td>
-                    </tr>
-                    <tr>
-                        <td>Reparo na Estrada</td>
-                        <td>Em Análise</td>
-                        <td><button class="btn-info">Ver Mais</button></td>
-                    </tr>
+                    {% for relatorio in relatorios %}
+                        <tr>
+                            <td>{{ relatorio.titulo }}</td>
+                            <td>{{ relatorio.status }}</td>
+                            <td><a href="{% url 'Aplicacao:detalhes_relatorio' relatorio.id %}" class="btn-info">Ver Mais</a></td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="3">Nenhuma reforma em andamento.</td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
