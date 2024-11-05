@@ -10,12 +10,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>{{ relatorio.titulo }}</h1>
-    <p>Status: {{ relatorio.status }}</p>
-    <p>Data: {{ relatorio.data }}</p>
-    <p>Descrição: {{ relatorio.descricao }}</p>
-    <p>Validação: {{ relatorio.validacao }}</p>
-    <p>Comentários: {{ relatorio.comentarios }}</p>
+
     <!-- Navbar -->
     <div class="navbar">
         <a href="{% url 'Aplicacao:home' %}" class="navbar-container">
@@ -25,6 +20,7 @@
             <a href="{% url 'Aplicacao:status_reformas' %}">Voltar para Status de Reformas</a>
         </div>
     </div>
+    <br><br><br><br>
 
     <!-- Conteúdo Principal -->
     <main class="container">
@@ -53,46 +49,167 @@
 
     <style>
         /* Estilos para os detalhes do relatório */
-        .detalhes-relatorio {
-            background-color: #f4f4f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+        .container {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        display: flex;
+        padding: 30px;
+        max-width: 700px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: center;
+    }
 
-        .detalhes-relatorio h1 {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
+    .form-container h1 {
+        font-size: 26px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #333333;
+    }
 
-        .detalhes-relatorio p {
-            font-size: 18px;
-            color: #555;
-        }
+    .form-container p {
+        font-size: 15px;
+        color: #555555;
+        margin-bottom: 25px;
+    }
 
-        .comentarios {
-            margin-top: 20px;
-            padding-top: 10px;
-            border-top: 1px solid #ddd;
-        }
+    .form-group {
+        display: flex;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
 
-        .comentarios h2 {
-            font-size: 20px;
-            color: #333;
-        }
+    .form-group input, .form-group select, .form-group textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ced4da;
+        border-radius: 6px;
+        font-size: 15px;
+        color: #333333;
+        background-color: #f9f9f9;
+        transition: border-color 0.3s ease;
+    }
 
-        .navbar, .footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+        border-color: #4A90E2;
+        outline: none;
+    }
 
-        .navbar a, .footer a {
-            color: #fff;
-            text-decoration: none;
-        }
+    .form-group textarea {
+        height: 120px;
+        resize: none;
+    }
+
+    .btn {
+        background-color: #4A90E2;
+        color: #ffffff;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        text-align: center;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #357ABD;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background-color: #f0f2f5;
+    }
+        
+            .navbar {
+                position: fixed;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 50px; 
+                background-color: #4A90E2;
+                z-index: 2;
+                width: 100%;
+                left: 0;
+                right: 0;
+                box-sizing: border-box;
+            }
+        
+            .navbar-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+                box-sizing: border-box;
+            }
+        
+            .nav-links {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-grow: 1; 
+            }
+        
+            .navbar a {
+                text-decoration: none;
+                color: #FFFFFF;
+                margin: 0 10px; 
+                font-weight: 600;
+            }
+        
+            .navbar .logo {
+                font-size: 24px;
+                font-weight: 600;
+                color: white;
+                margin-right: 20px; 
+            }
+        
+            .navbar .contact-btn {
+                background-color: #F5A623;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 25px;
+                border: none;
+                cursor: pointer;
+                margin-left: 10px;
+                white-space: nowrap;
+            }
+        
+            .dropdown {
+                position: relative;
+            }
+        
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: white;
+                color: #4A4A4A;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+            }
+        
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        
+            .dropdown-content a {
+                color: #4A4A4A;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+        
+            .dropdown-content a:hover {
+                background-color: #F5F7FA;
+            }
     </style>
 </body>
 </html>
