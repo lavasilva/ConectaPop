@@ -223,7 +223,6 @@ class DetalhesRelatorio(View):
         return render(request, 'detalhes_relatorio.html', {'relatorio': relatorio})
 
 
-
 def anunciar_vaga(request):
     if request.method == 'POST':
         # Pega os dados diretamente do formulário
@@ -234,11 +233,11 @@ def anunciar_vaga(request):
         nivel_escolaridade = request.POST['nivel_escolaridade']
         email_contato = request.POST['email_contato']
 
-        # Aqui você pode adicionar validações extras, por exemplo, verificar se o e-mail é válido
+        # Validação simples do e-mail
         if '@' not in email_contato:
-            # Se o e-mail for inválido, podemos adicionar um erro na resposta
+            # Se o e-mail for inválido, exibe a mensagem de erro
             return render(request, 'vagas_trabalho.html', {'error': 'E-mail inválido!'})
-
+        
         # Cria e salva a vaga no banco de dados
         vaga = Vaga.objects.create(
             titulo_vaga=titulo_vaga,
@@ -249,8 +248,12 @@ def anunciar_vaga(request):
             email_contato=email_contato
         )
 
-        # Redireciona para outra página ou para a mesma página com uma mensagem de sucesso
-        return redirect('Aplicacao:anunciar_vaga')  # Você pode criar uma view de sucesso ou apenas redirecionar para a lista de vagas.
+        # Exibe uma mensagem de sucesso ao criar a vaga
+        success_message = 'Sua vaga foi anunciada com sucesso!'
+
+        # Redireciona de volta com a mensagem de sucesso
+        return render(request, 'vagas_trabalho.html', {'success': success_message})
 
     # Se o método for GET, renderiza o formulário vazio
     return render(request, 'vagas_trabalho.html')
+
