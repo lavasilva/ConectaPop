@@ -76,19 +76,16 @@ class enquetes(View):
 class atualizacoes(View):
     def get(self, request):
         endereco = request.GET.get('endereco')
-        mensagem = None  # Inicialize a mensagem como None
+        mensagem = None  
 
-        if endereco:  # Verifique se o endereço foi fornecido
+        if endereco:  
             problema = Relatar.objects.filter(endereco=endereco).first()
             
             if problema:
-                # Se houver um problema encontrado, renderiza a página com o problema.
                 return render(request, 'atualizacoes.html', {'problema': problema})
             else:
-                # Se não houver problema, define a mensagem.
                 mensagem = "O endereço informado não possui ocorrências de problemas."
 
-        # Renderiza a página com a mensagem apenas se o endereço foi fornecido
         return render(request, 'atualizacoes.html', {'mensagem': mensagem})
 
 
@@ -200,7 +197,7 @@ def deletar_violacao(request, id):
     violacao.delete()
     return redirect('Aplicacao:alerta_seguranca')
 
-def cleanup_db(request): #Deletando do banco de dados o teste da historia 1
+def cleanup_db(request):
     Relatar.objects.filter(titulo='Teste de Problema', cep='50080160').delete()
     return JsonResponse({'status': 'specific data cleaned'})
 
@@ -213,7 +210,6 @@ def limpar_problemas(request):
 
 class OportunidadeProjetos(View):
     def get(self, request):
-        # Aqui você pode carregar os projetos do banco de dados, se necessário
         projects = [
             {
                 'title': 'Reforma do Parque do Centro',
@@ -255,7 +251,7 @@ class DocumentosProjetos(View):
     
 class StatusReformas(View):
     def get(self, request):
-        relatorios = Relatorio.objects.all()  # Recupera todos os relatórios de progresso
+        relatorios = Relatorio.objects.all()
         return render(request, 'status_reformas.html', {'relatorios': relatorios})
 
 class DetalhesRelatorio(View):
