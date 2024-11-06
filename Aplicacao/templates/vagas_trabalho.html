@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anunciar Oportunidade</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #F5F7FA;
+        }
+
+        .navbar {
+            position: fixed;
+            display: flex; 
+            justify-content: space-between;
+            align-items: center; 
+            padding: 20px 50px; 
+            background-color: #4A90E2; 
+            z-index: 2; 
+            width: 100%;
+            left: 0; 
+            right: 0; 
+            box-sizing: border-box; 
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #FFFFFF;
+            margin: 0 15px;
+            font-weight: 600;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+            background-color: #F5F7FA;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+        }
+
+        .form-container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .btn {
+            background-color: #4A90E2;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background-color: #357ABD;
+        }
+
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'Aplicacao:home_adm' %}">
+            <div class="logo">ConectaPop</div>
+        </a>
+        <div class="nav-links">
+            <div class="dropdown">
+                <a href="#">Status das Reformas</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'Aplicacao:relatorio_progresso' %}">Relatórios de Progresso</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Projetos e Oportunidades</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'Aplicacao:anunciar_vaga' %}">Vagas de Trabalho</a>
+                    <a href="{% url 'Aplicacao:documentos_projetos' %}">Documentos de Projetos</a>
+                </div>
+            </div>
+            <div class="auth-links">
+                <a href="{% url 'Aplicacao:home' %}" class="register-btn">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br><br><br>
+
+    <div class="container">
+        <div class="form-container">
+            <h1>Anunciar Oportunidade</h1>
+            <p>Preencha as informações abaixo para anunciar uma nova oportunidade de vaga. Forneça detalhes claros e objetivos para atrair os candidatos mais qualificados!</p>
+
+            {% if error %}
+                <div class="error-message">
+                    <p>{{ error }}</p>
+                </div>
+            {% endif %}
+
+            <form action="{% url 'Aplicacao:anunciar_vaga' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="titulo-vaga">Título da Vaga</label>
+                    <input type="text" id="titulo-vaga" name="titulo_vaga" placeholder="Digite o título da vaga" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descricao-vaga">Descrição da Vaga</label>
+                    <textarea id="descricao-vaga" name="descricao_vaga" placeholder="Descreva a vaga detalhadamente" required style="height: 200px; resize: none;"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="pretensao-salarial">Pretensão Salarial</label>
+                    <input type="text" id="pretensao-salarial" name="pretensao_salarial" placeholder="Informe a pretensão salarial" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tempo-vaga">Tempo da Vaga</label>
+                    <select id="tempo-vaga" name="tempo_vaga" required>
+                        <option value="">Escolha a duração</option>
+                        <option value="1-mes">1 Mês</option>
+                        <option value="2-meses">2 Meses</option>
+                        <option value="3-meses">3 Meses</option>
+                        <option value="indeterminado">Indeterminado</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="nivel-escolaridade">Nível de Escolaridade</label>
+                    <select id="nivel-escolaridade" name="nivel_escolaridade" required>
+                        <option value="">Escolha o nível</option>
+                        <option value="ensino-fundamental">Ensino Fundamental</option>
+                        <option value="ensino-medio">Ensino Médio</option>
+                        <option value="ensino-superior">Ensino Superior</option>
+                        <option value="pos-graduacao">Pós-Graduação</option>
+                        <option value="doutorado">Doutorado</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email-contato">E-mail de Contato</label>
+                    <input type="email" id="email-contato" name="email_contato" placeholder="Digite seu e-mail" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn">Anunciar Vaga</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

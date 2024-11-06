@@ -9,7 +9,7 @@ from .models import Violacao
 from django.db.models import Q 
 from django.contrib.auth import authenticate, login as auth_login
 from django.http import JsonResponse
-
+from .models import Vaga
 
 class HomeView(View):
     def get(self, request):
@@ -207,43 +207,6 @@ def limpar_problemas(request):
         Relatar.objects.filter(endereco=endereco).delete()
         return JsonResponse({'status': 'success'})
     return JsonResponse({'status': 'no address provided'}, status=400)
-
-class OportunidadeProjetos(View):
-    def get(self, request):
-        projects = [
-            {
-                'title': 'Reforma do Parque do Centro',
-                'description': 'Reforma completa do Parque do Centro, incluindo áreas de lazer, playground e melhorias nas trilhas.',
-                'deadline': '30 de Abril de 2024',
-                'criteria': 'Experiência comprovada em projetos similares, prazo de execução, orçamento competitivo.',
-                'instructions': [
-                    'Anexe os documentos necessários, como portfólio e comprovação de experiência.',
-                    'Envie sua candidatura até a data limite através do e-mail licitacoes@conectapop.com.',
-                ]
-            },
-            {
-                'title': 'Projeto de Ampliação da Biblioteca Municipal',
-                'description': 'Ampliação da Biblioteca Municipal para incluir novas salas de leitura, áreas de estudo e tecnologia.',
-                'deadline': '15 de Maio de 2024',
-                'criteria': 'Qualidade do projeto, sustentabilidade, prazo de execução.',
-                'instructions': [
-                    'Envie o plano de projeto e orçamento detalhado.',
-                    'Confirme sua inscrição através do e-mail licitacoes@conectapop.com.',
-                ]
-            },
-            {
-                'title': 'Projeto de Ampliação de Vias',
-                'description': 'Ampliação das vias para mais conforto e minimizar o congestionamento intenso na região.',
-                'deadline': '25 de Novembro de 2024',
-                'criteria': 'Qualidade do projeto, minimizar danos, prazo de execução.',
-                'instructions': [
-                    'Envie seu currículo e orçamento detalhado.',
-                    'Confirme sua inscrição através do e-mail licitacoes@conectapop.com.',
-                ]
-            },
-        ]
-        
-        return render(request, 'oportunidade_projetos.html', {'projects': projects})
     
 class DocumentosProjetos(View):
     def get(self, request):
@@ -258,3 +221,36 @@ class DetalhesRelatorio(View):
     def get(self, request, relatorio_id):
         relatorio = get_object_or_404(Relatorio, id=relatorio_id)
         return render(request, 'detalhes_relatorio.html', {'relatorio': relatorio})
+
+
+
+def anunciar_vaga(request):
+    if request.method == 'POST':
+        # Pega os dados diretamente do formulário
+        titulo_vaga = request.POST['titulo_vaga']
+        descricao_vaga = request.POST['descricao_vaga']
+        pretensao_salarial = request.POST['pretensao_salarial']
+        tempo_vaga = request.POST['tempo_vaga']
+        nivel_escolaridade = request.POST['nivel_escolaridade']
+        email_contato = request.POST['email_contato']
+
+        # Aqui você pode adicionar validações extras, por exemplo, verificar se o e-mail é válido
+        if '@' not in email_contato:
+            # Se o e-mail for inválido, podemos adicionar um erro na resposta
+            return render(request, 'vagas_trabalho.html', {'error': 'E-mail inválido!'})
+
+        # Cria e salva a vaga no banco de dados
+        vaga = Vaga.objects.create(
+            titulo_vaga=titulo_vaga,
+            descricao_vaga=descricao_vaga,
+            pretensao_salarial=pretensao_salarial,
+            tempo_vaga=tempo_vaga,
+            nivel_escolaridade=nivel_escolaridade,
+            email_contato=email_contato
+        )
+
+        # Redireciona para outra página ou para a mesma página com uma mensagem de sucesso
+        return redirect('Aplicacao:anunciar_vaga')  # Você pode criar uma view de sucesso ou apenas redirecionar para a lista de vagas.
+
+    # Se o método for GET, renderiza o formulário vazio
+    return render(request, 'vagas_trabalho.html')

@@ -38,3 +38,30 @@ class Violacao(models.Model):
 
     def __str__(self):
         return f"Violação em {self.endereco} - {self.servico}"
+
+class Vaga(models.Model):
+    TEMPO_VAGA_CHOICES = [
+        ('1-mes', '1 Mês'),
+        ('2-meses', '2 Meses'),
+        ('3-meses', '3 Meses'),
+        ('indeterminado', 'Indeterminado')
+    ]
+
+    NIVEL_ESCOLARIDADE_CHOICES = [
+        ('ensino-fundamental', 'Ensino Fundamental'),
+        ('ensino-medio', 'Ensino Médio'),
+        ('ensino-superior', 'Ensino Superior'),
+        ('pos-graduacao', 'Pós-Graduação'),
+        ('doutorado', 'Doutorado')
+    ]
+
+    titulo_vaga = models.CharField(max_length=255)
+    descricao_vaga = models.TextField()
+    pretensao_salarial = models.CharField(max_length=100)
+    tempo_vaga = models.CharField(max_length=50, choices=TEMPO_VAGA_CHOICES)
+    nivel_escolaridade = models.CharField(max_length=100, choices=NIVEL_ESCOLARIDADE_CHOICES)
+    email_contato = models.EmailField()
+
+    def __str__(self):
+        return self.titulo_vaga
+
