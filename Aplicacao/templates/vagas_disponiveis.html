@@ -89,6 +89,7 @@
             margin: 0;
             font-family: 'Poppins', sans-serif;
             background-color: #f0f2f5;
+            align-items: center;
         }
 
         .navbar {
@@ -308,7 +309,13 @@
                 <tbody>
                     {% for vaga in vagas %}
                     <tr>
-                        <td>{{ vaga.titulo }}</td>
+
+                        <td>
+                            <div class="job-card">
+                                <h4>{{ vaga.titulo_vaga }}</h4> 
+                            </div>
+                            
+                        </td>
                         <td><button class="btn-info">Tenho Interesse</button></td>
                     </tr>
                     {% endfor %}

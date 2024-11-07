@@ -258,9 +258,5 @@ def anunciar_vaga(request):
     return render(request, 'vagas_trabalho.html')
 
 def vagas_disponiveis(request):
-    vagas = [
-        {'titulo': 'Ajudante de pedreiro'},
-        {'titulo': 'Construtor'},
-        {'titulo': 'Arquiteto'}
-    ]
-    return render(request, 'vagas_disponiveis.html')
+    vagas = Vaga.objects.all()
+    return render(request, 'vagas_disponiveis.html', {'vagas': vagas})
