@@ -207,7 +207,7 @@
                 </div>
             {% endif %}
 
-            <form action="{% url 'Aplicacao:anunciar_vaga' %}" method="POST">
+            <form  method="POST">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="titulo-vaga">Título da Vaga</label>

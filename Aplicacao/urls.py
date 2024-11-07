@@ -21,6 +21,7 @@ urlpatterns = [
     path('status_reformas/', StatusReformas.as_view(), name='status_reformas'),
     path('detalhes_relatorio/<int:relatorio_id>/', views.DetalhesRelatorio.as_view(), name='detalhes_relatorio'),
     path('anunciar-vaga/', views.anunciar_vaga, name='anunciar_vaga'),
+    path('vagas-disponiveis/', views.vagas_disponiveis, name='vagas_disponiveis'),
 
 ]
 
