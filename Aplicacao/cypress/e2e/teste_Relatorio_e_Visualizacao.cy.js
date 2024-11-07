@@ -8,20 +8,6 @@ describe('Teste da historia 4', () => {
   const cleanupAndSetupData = () => {
       
       cy.request('GET', 'http://127.0.0.1:8000/cleanup_db/').then(() => {
-        
-        // registro 
-        cy.visit('http://127.0.0.1:8000/');
-        cy.wait(1000);
-        cy.visit('http://127.0.0.1:8000/registro'); 
-        cy.wait(1000);
-        cy.get('[type="text"]').type('Lavinia');
-        cy.get('[type="email"]').type('laviniamsilva@conecta.pop');
-        cy.get('[name="senha"]').type('1234');
-        cy.get('[name="confirmar_senha"]')
-          .should('not.be.disabled') 
-          .type('1234');        
-        cy.wait(1000);
-        cy.get('.register-button').click();
 
         //login 
         cy.visit('http://127.0.0.1:8000/login'); 
@@ -48,8 +34,11 @@ describe('Teste da historia 4', () => {
         cy.get('#tituloRelatorio').type('Repavimentação na Av. João de Barros.');
         cy.get('#descricaoProgresso').type('Esperada a finalização em 2 dias úteis.');
         cy.get('#dataRelatorio').type('2024-10-20');
+        cy.wait(500);
         cy.get('#statusProjeto').select('Pendente');
+        cy.wait(500);
         cy.get('#validacaoRelatorio').select('Em Revisão');
+        cy.wait(500);
         cy.get('#comentariosAuditor').type('Progresso está muito lento; poucos funcionários disponibilizados.');
         cy.wait(1000);
         cy.get('[action="/relatorio_progresso/"] > .btn').click();
@@ -65,6 +54,16 @@ describe('Teste da historia 4', () => {
         .click();      
         cy.get(':nth-child(2) > :nth-child(2) > form > .btn').click();
         cy.wait(2000);
+
+        //status de reforma
+        cy.visit('http://127.0.0.1:8000/'); 
+        cy.wait(500);
+        cy.visit('http://127.0.0.1:8000/status_reformas/');
+        cy.wait(500);
+        cy.get(':nth-child(2) > :nth-child(3) > .btn-info').click();
+        cy.wait(4000);
+        cy.get('.nav-links > a').click();
+        cy.wait(4000);
 
       });
   };
@@ -88,7 +87,10 @@ describe('Teste da historia 4', () => {
       .should('not.be.disabled') 
       .type('1234');        
     cy.get('.register-button').click();
-    cy.wait(2000);
+    cy.wait(1000);
+    cy.get('[type="text"]')
+    .scrollIntoView()
+    .should('be.visible');
   });
 
   it('cenario3 - registrando usuario com dados com e-mail invalido', () => {
@@ -212,7 +214,7 @@ describe('Teste da historia 4', () => {
     cy.wait(2000);
   });
 
-  // testes de registro
+  // testes de relatorios
 
   it('cenario8 - registro de relatorio sem titulo', () => {
         cy.visit('http://127.0.0.1:8000/home_adm/');
@@ -225,6 +227,10 @@ describe('Teste da historia 4', () => {
         cy.get('#comentariosAuditor').type('Progresso está muito lento; poucos funcionários disponibilizados.');
         cy.wait(1000);
         cy.get('[action="/relatorio_progresso/"] > .btn').click();
+        cy.wait(2000);
+        cy.get('#tituloRelatorio')
+        .scrollIntoView()
+        .should('be.visible');
         cy.wait(2000);
   });
 
