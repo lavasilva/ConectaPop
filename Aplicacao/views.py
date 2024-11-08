@@ -4,12 +4,14 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Relatar, Enquetes
-from .models import Relatorio
 from .models import Violacao
 from django.db.models import Q 
 from django.contrib.auth import authenticate, login as auth_login
 from django.http import JsonResponse
 from .models import Vaga
+from django.http import HttpResponse
+from .models import Relatorio, AvaliacaoReforma
+
 
 class HomeView(View):
     def get(self, request):
@@ -260,3 +262,33 @@ def anunciar_vaga(request):
 def vagas_disponiveis(request):
     vagas = Vaga.objects.all()
     return render(request, 'vagas_disponiveis.html', {'vagas': vagas})
+
+class AvaliarReformaView(View):
+    def get(self, request):
+        # Buscar todos os relatórios de reforma com status em progresso ou concluída
+        relatorios = Relatorio.objects.filter(status__in=['em_progresso', 'concluido'])
+        return render(request, 'avaliacao_reformas.html', {'relatorios': relatorios})
+
+    def post(self, request):
+        # Obter as informações do formulário de avaliação
+        relatorio_id = request.POST.get('relatorio_id')
+        nota_andamento = request.POST.get('nota_andamento')  # Certifique-se de que o nome corresponde
+        justificativa = request.POST.get('justificativa')  # Certifique-se de que o nome corresponde
+
+        # Verifique se a justificativa (comentários) está sendo enviada corretamente
+        print(f"Justificativa recebida: {justificativa}")
+
+        try:
+            relatorio = Relatorio.objects.get(id=relatorio_id)
+
+            # Criar uma nova avaliação no modelo AvaliacaoReforma
+            avaliacao = AvaliacaoReforma(
+                relatorio=relatorio,
+                nota_andamento=nota_andamento,
+                justificativa=justificativa  # Passando os comentários corretamente
+            )
+            avaliacao.save()
+        except Relatorio.DoesNotExist:
+            pass  # Se o relatório não for encontrado, não faz nada.
+
+        return redirect('Aplicacao:avaliar_reformas')  # Redireciona para a página de avaliação de reformas

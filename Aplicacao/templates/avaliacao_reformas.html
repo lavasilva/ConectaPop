@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa de Reformas</title>
+    <title>Avaliar Reformas</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
     <link rel="icon" href="iconecp.png" type="image/png">
     {% load static %}
     <link rel="stylesheet" href="{% static 'home.css' %}">
     <style>
+        /* Estilo geral da página */
         .container {
             background-color: #ffffff;
             border-radius: 12px;
@@ -79,19 +80,8 @@
         .btn:hover {
             background-color: #357ABD;
         }
-        table .btn-info {
-            margin-top: 10px; /* Espaço acima de cada botão */
-            margin-bottom: 10px; /* Espaço abaixo de cada botão */
-            width: auto; /* Ajuste do botão para não ocupar 100% da largura */
-        }
 
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0f2f5;
-            align-items: center;
-        }
-
+        /* Navbar estilo */
         .navbar {
             position: fixed;
             display: flex;
@@ -129,9 +119,6 @@
             margin: 0 15px;
             font-weight: 600;
         }
-        .navbar .dropdown-content a {
-            margin-bottom: 10px; /* Adiciona um espaço entre os links do dropdown */
-        }
 
         .auth-links {
             display: flex;
@@ -145,35 +132,7 @@
             color: #FFFFFF;
         }
 
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            color: #4A4A4A;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            color: #4A4A4A;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #F5F7FA;
-        }
-
+        /* Tabela de reformas */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -206,58 +165,95 @@
             color: #333333;
         }
 
-        details summary {
-            cursor: pointer;
-            font-weight: bold;
-            color: #4A90E2;
-            outline: none;
-        }
-
-        details .info {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-radius: 6px;
-            border: 1px solid #ced4da;
-            color: #555555;
-        }
-
-        button.btn {
-            padding: 8px 12px;
-            font-size: 14px;
-            border-radius: 4px;
-            background-color: #f44336;
-            color: #ffffff;
-            font-weight: 600;
-            cursor: pointer;
-            border: none;
-            transition: background-color 0.3s ease;
-            margin-bottom: 10px;
-        }
-
-        button.btn:hover {
-            background-color: #d32f2f;
-        }
-
-        .btn-info {
-            padding: 8px 12px;
-            font-size: 14px;
-            border-radius: 4px;
+        /* Botões */
+        .btn-avaliar {
             background-color: #4A90E2;
             color: #ffffff;
-            font-weight: 600;
-            cursor: pointer;
+            padding: 10px 15px;
             border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-avaliar:hover {
+            background-color: #357ABD;
+        }
+
+        /* Formulário de avaliação */
+        .form-avaliacao {
+            display: none; /* Inicialmente escondido */
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-avaliacao input, .form-avaliacao select, .form-avaliacao textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        .form-avaliacao button {
+            background-color: #4A90E2;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
-        .btn-info:hover {
+        .form-avaliacao button:hover {
             background-color: #357ABD;
         }
+        .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    color: #4A4A4A; /* Cinza Escuro */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #4A4A4A; /* Cinza Escuro */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #F5F7FA; /* Cinza Claro */
+}
+
+.auth-links {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.auth-links a {
+    margin: 0 10px;
+    font-weight: 600;
+    color: #FFFFFF; /* Branco para contraste */
+}
+
     </style>
 </head>
 
 <body>
+    <!-- Navbar -->
     <div class="navbar">
         <a href="{% url 'Aplicacao:home' %}" class="navbar-container">
             <div class="logo">ConectaPop</div>
@@ -294,38 +290,85 @@
             </div>
         </div>
     </div>
-    <br><br><br><br><br>
+    
 
+    <br><br><br><br><br><br><br>
+
+    <!-- Conteúdo da página -->
     <div class="container">
         <div class="header">
-            <h1>Vagas Disponíveis</h1>
-            <p>Explore as vagas disponíveis e mostre interesse nas que mais se encaixam com o seu perfil!</p>
+            <h1>Avaliação das reformas</h1>
+            <p>Explore as reformas disponíveis e forneça sua avaliação para melhorar a qualidade!</p>
         </div>
 
         <div class="tabela-reformas">
             <table>
                 <thead>
                     <tr>
-                        <th>Título da Vaga</th>
-                        <th>Ação</th>
+                        <th>Título da Reforma</th>
+                        <th>Status</th>
+                        <th>Avaliar Reforma</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for vaga in vagas %}
+                    {% for relatorio in relatorios %}
                     <tr>
-
+                        <td>{{ relatorio.titulo }}</td>
+                        <td>{{ relatorio.status }}</td>
                         <td>
-                            <div class="job-card">
-                                <h4>{{ vaga.titulo_vaga }}</h4> 
+                            <button class="btn-avaliar" onclick="mostrarFormularioAvalicao('{{ relatorio.id }}', '{{ relatorio.status }}')">Avalie aqui</button>
+                            <!-- Formulário de Avaliação (escondido inicialmente) -->
+                            <div class="form-avaliacao" id="form-avaliacao-{{ relatorio.id }}">
+                                <form method="post" action="{% url 'Aplicacao:avaliar_reformas' %}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="nota_andamento">Nota (0-10):</label>
+                                        <select name="nota_andamento" id="nota_andamento" required>
+                                            <option value="">Selecione</option>
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="comentarios">Comentários:</label>
+                                        <textarea name="justificativa" id="justificativa" required></textarea>
+                                    </div>
+                                    <input type="hidden" name="relatorio_id" value="{{ relatorio.id }}">
+                                    <button type="submit">Enviar Avaliação</button>
+                                </form>
                             </div>
-                            
                         </td>
-                        <td><button class="btn-info">Tenho Interesse</button></td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
+
+    <script>
+        // Função para mostrar o formulário de avaliação
+        function mostrarFormularioAvalicao(id, status) {
+            const form = document.getElementById('form-avaliacao-' + id);
+            form.style.display = 'block';
+
+            // Dependendo do status, podemos ajustar o título do formulário
+            const formTitle = form.querySelector('h2');
+            if (status === 'em progresso') {
+                formTitle.innerText = 'Avaliação do Andamento da Reforma';
+            } else if (status === 'concluída') {
+                formTitle.innerText = 'Avaliação da Reforma Concluída';
+            }
+        }
+    </script>
+
 </body>
 </html>

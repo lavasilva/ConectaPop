@@ -65,3 +65,11 @@ class Vaga(models.Model):
     def __str__(self):
         return self.titulo_vaga
 
+class AvaliacaoReforma(models.Model):
+    relatorio = models.ForeignKey(Relatorio, related_name='avaliacoes', on_delete=models.CASCADE)
+    nota_andamento = models.CharField(max_length=2, choices=[(str(i), str(i)) for i in range(11)], blank=True, null=True)  # Nota da avaliação
+    justificativa = models.TextField(blank=True, null=True)  # Justificativa da avaliação
+    data_avaliacao = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Avaliação de {self.relatorio.titulo} - Nota: {self.nota_andamento}"
