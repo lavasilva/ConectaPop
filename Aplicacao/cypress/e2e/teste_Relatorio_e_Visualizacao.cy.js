@@ -1,5 +1,5 @@
 
-describe('Teste da historia 4', () => {
+describe('Teste da historia 6 e 10', () => {
 
   beforeEach(() => {
     cy.request('GET', 'http://127.0.0.1:8000/cleanup_db/');
@@ -43,6 +43,8 @@ describe('Teste da historia 4', () => {
         cy.wait(1000);
         cy.get('[action="/relatorio_progresso/"] > .btn').click();
         cy.wait(1000);
+
+        //mostrando ações
         cy.get(':nth-child(1) > :nth-child(2) > details > summary')
         .should('exist')
         .and('be.visible')
@@ -227,10 +229,6 @@ describe('Teste da historia 4', () => {
         cy.get('#comentariosAuditor').type('Progresso está muito lento; poucos funcionários disponibilizados.');
         cy.wait(1000);
         cy.get('[action="/relatorio_progresso/"] > .btn').click();
-        cy.wait(2000);
-        cy.get('#tituloRelatorio')
-        .scrollIntoView()
-        .should('be.visible');
         cy.wait(2000);
   });
 
