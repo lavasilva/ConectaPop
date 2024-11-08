@@ -292,3 +292,8 @@ class AvaliarReformaView(View):
             pass  # Se o relatório não for encontrado, não faz nada.
 
         return redirect('Aplicacao:avaliar_reformas')  # Redireciona para a página de avaliação de reformas
+    
+def detalhes_interesse(request, interesse_id):
+    vaga_interesse = get_object_or_404(Vaga, id=interesse_id)
+    return render(request, 'detalhes_interesse.html', {'vaga_interesse': vaga_interesse})
+

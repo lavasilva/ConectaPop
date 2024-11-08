@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Relatar(models.Model):
     titulo = models.CharField(max_length=100)
@@ -38,6 +39,16 @@ class Violacao(models.Model):
 
     def __str__(self):
         return f"Violação em {self.endereco} - {self.servico}"
+    
+
+class AvaliacaoReforma(models.Model):
+    relatorio = models.ForeignKey(Relatorio, related_name='avaliacoes', on_delete=models.CASCADE)
+    nota_andamento = models.CharField(max_length=2, choices=[(str(i), str(i)) for i in range(11)], blank=True, null=True)  # Nota da avaliação
+    justificativa = models.TextField(blank=True, null=True)  # Justificativa da avaliação
+    data_avaliacao = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Avaliação de {self.relatorio.titulo} - Nota: {self.nota_andamento}"
 
 class Vaga(models.Model):
     TEMPO_VAGA_CHOICES = [
@@ -65,11 +76,9 @@ class Vaga(models.Model):
     def __str__(self):
         return self.titulo_vaga
 
-class AvaliacaoReforma(models.Model):
-    relatorio = models.ForeignKey(Relatorio, related_name='avaliacoes', on_delete=models.CASCADE)
-    nota_andamento = models.CharField(max_length=2, choices=[(str(i), str(i)) for i in range(11)], blank=True, null=True)  # Nota da avaliação
-    justificativa = models.TextField(blank=True, null=True)  # Justificativa da avaliação
-    data_avaliacao = models.DateField(auto_now_add=True)
+class InteresseVaga(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    vaga = models.ForeignKey(Vaga, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Avaliação de {self.relatorio.titulo} - Nota: {self.nota_andamento}"
+        return f"{self.usuario.username} tem interesse em {self.vaga.titulo_vaga}"

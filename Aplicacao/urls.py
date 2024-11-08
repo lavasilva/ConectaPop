@@ -23,7 +23,8 @@ urlpatterns = [
     path('anunciar-vaga/', views.anunciar_vaga, name='anunciar_vaga'),
     path('vagas-disponiveis/', views.vagas_disponiveis, name='vagas_disponiveis'),
     path('avaliar-reformas/', views.AvaliarReformaView.as_view(), name='avaliar_reformas'),
-
+    path('detalhes-interesse/<int:interesse_id>/', views.detalhes_interesse, name='detalhes_interesse'),
+    
 ]
 
 urlpatterns += [

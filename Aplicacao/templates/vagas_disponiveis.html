@@ -306,21 +306,20 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Título da Vaga</th>
+                        <th>Título do Interesse</th> <!-- Alterado de "Título da Vaga" -->
                         <th>Ação</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for vaga in vagas %}
+                    {% for vaga in vagas %} <!-- Mantido "vagas" aqui -->
                     <tr>
 
                         <td>
                             <div class="job-card">
-                                <h4>{{ vaga.titulo_vaga }}</h4> 
+                                <h4>{{ vaga.titulo_vaga }}</h4> <!-- A referência do título da vaga deve ser 'titulo_vaga' -->
                             </div>
-                            
                         </td>
-                        <td><button class="btn-info">Tenho Interesse</button></td>
+                        <td><a href="{% url 'Aplicacao:detalhes_interesse' vaga.id %}" class="btn-info">Tenho Interesse</a></td> <!-- Usado 'vaga' aqui para o botão -->
                     </tr>
                     {% endfor %}
                 </tbody>
