@@ -8,8 +8,8 @@ describe('Teste de atualização de situacao', () => {
         cy.get('#endereco').type('Rua exemplo, 123');
         cy.get('form > .btn').click();
         cy.wait(3000);
-        cy.get(':nth-child(9) > .btn').click();
-    });
+        cy.get('.form-container', { timeout: 10000 }).should('exist');
+        cy.get('.btn', { timeout: 10000 }).contains('Verificar Ocorrência').should('be.visible').click();    });
 
     it('cenario2 - o usuário procurara por uma obra que não existe', () => {
         cy.visit('http://127.0.0.1:8000/');

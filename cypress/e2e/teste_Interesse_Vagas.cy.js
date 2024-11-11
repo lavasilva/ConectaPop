@@ -12,7 +12,8 @@ describe('Teste da historia 4 e 5', () => {
         cy.wait(500);
         cy.visit('http://127.0.0.1:8000/vagas-disponiveis/');
         cy.wait(500);
-        cy.get('.btn-info', { timeout: 10000 }).should('be.visible').first().click();
+        cy.get('.tabela-reformas', { timeout: 10000 }).should('exist');
+        cy.get('.btn-info', { timeout: 10000 }).first().should('be.visible').click();
         cy.wait(500);
         cy.get('#descricao-vaga').type('Tenho experiência prática em obras de construção civil, onde desenvolvi habilidades em supervisão de equipes, leitura de projetos e coordenação de atividades no canteiro. Ao longo da minha trajetória, aprimorei minha capacidade de liderar e trabalhar em equipe, sempre buscando a entrega de projetos com qualidade e no prazo estipulado. Sou dedicado, responsável e comprometido com a segurança e a excelência no trabalho. ');
         cy.get('#pretensao-salarial').select('De 1000 a 5000');
@@ -37,7 +38,8 @@ describe('Teste da historia 4 e 5', () => {
     cy.wait(500);
     cy.visit('http://127.0.0.1:8000/vagas-disponiveis/');
     cy.wait(500);
-    cy.get('.btn-info', { timeout: 10000 }).should('be.visible').first().click();    
+    cy.get('.tabela-reformas', { timeout: 10000 }).should('exist');
+    cy.get('.btn-info', { timeout: 10000 }).first().should('be.visible').click();  
     cy.wait(500);
     cy.get('#pretensao-salarial').select('De 1000 a 5000');
     cy.wait(500);
@@ -90,7 +92,8 @@ describe('Teste da historia 4 e 5', () => {
     cy.wait(500);
     cy.visit('http://127.0.0.1:8000/vagas-disponiveis/');
     cy.wait(500);
-    cy.get('.btn-info', { timeout: 10000 }).should('be.visible').first().click();
+    cy.get('.tabela-reformas', { timeout: 10000 }).should('exist');
+    cy.get('.btn-info', { timeout: 10000 }).first().should('be.visible').click();
     cy.wait(500);
     cy.get('#descricao-vaga').type('Tenho experiência prática em obras de construção civil, onde desenvolvi habilidades em supervisão de equipes, leitura de projetos e coordenação de atividades no canteiro. Ao longo da minha trajetória, aprimorei minha capacidade de liderar e trabalhar em equipe, sempre buscando a entrega de projetos com qualidade e no prazo estipulado. Sou dedicado, responsável e comprometido com a segurança e a excelência no trabalho. ');
     cy.get('#pretensao-salarial').select('De 1000 a 5000');
@@ -108,7 +111,8 @@ describe('Teste da historia 4 e 5', () => {
     cy.wait(500);
     cy.visit('http://127.0.0.1:8000/vagas-disponiveis/');
     cy.wait(500);
-    cy.get('.btn-info', { timeout: 10000 }).should('be.visible').first().click();
+    cy.get('.tabela-reformas', { timeout: 10000 }).should('exist');
+    cy.get('.btn-info', { timeout: 10000 }).first().should('be.visible').click();
     cy.wait(500);
     cy.get('#descricao-vaga').type('Tenho experiência prática em obras de construção civil, onde desenvolvi habilidades em supervisão de equipes, leitura de projetos e coordenação de atividades no canteiro. Ao longo da minha trajetória, aprimorei minha capacidade de liderar e trabalhar em equipe, sempre buscando a entrega de projetos com qualidade e no prazo estipulado. Sou dedicado, responsável e comprometido com a segurança e a excelência no trabalho. ');
     cy.get('#pretensao-salarial').select('De 1000 a 5000');
