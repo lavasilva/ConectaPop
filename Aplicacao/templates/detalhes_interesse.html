@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstrar Interesse</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+    <link rel="icon" href="iconecp.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="{% url 'Aplicacao:home' %}" class="navbar-container">
+            <div class="logo">ConectaPop</div>
+        </a>
+        <div class="nav-links">
+            <a href="{% url 'Aplicacao:vagas_disponiveis' %}">Voltar para Vagas Disponíveis</a>
+        </div>
+    </div>
+    <br><br><br><br>
+
+    <!-- Conteúdo Principal -->
+    <div class="container">
+        <div class="form-container">
+            <h1>Demonstrar Interesse</h1>
+            <p>Preencha as informações abaixo se você deseja uma nova oportunidade de vaga. Nos informe também porque você merece a vaga!</p>
+
+            <!-- Exibindo mensagens de erro ou sucesso -->
+            {% if error %}
+                <div class="error-message" style="background-color: #f8d7da; color: #721c24;">
+                    <p>{{ error }}</p>
+                </div>
+            {% endif %}
+
+            {% if success %}
+                <div class="success-message" style="background-color: #d4edda; color: #155724;">
+                    <p>{{ success }}</p>
+                </div>
+            {% endif %}
+
+            <!-- Formulário para enviar os dados -->
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="descricao-vaga">Descrição de interesse</label>
+                    <textarea id="descricao-vaga" name="descricao_vaga" placeholder="Fale sobre você" required style="height: 200px; resize: none;"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="pretensao-salarial">Pretensão Salarial</label>
+                    <select id="pretensao-salarial" name="pretensao_salarial" required>
+                        <option value="">Escolha a pretensão salarial</option>
+                        <option value="100-500">De 100 a 500</option>
+                        <option value="500-1000">De 500 a 1000</option>
+                        <option value="1000-5000">De 1000 a 5000</option>
+                        <option value="5000-10000">De 5000 a 10000</option>
+                        <option value="10000-20000">De 10000 a 20000</option>
+                        <option value="20000+">De 20000 para cima</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tempo-vaga">Tempo da Vaga</label>
+                    <select id="tempo-vaga" name="tempo_vaga" required>
+                        <option value="">Escolha a duração</option>
+                        <option value="1-mes">1 Mês</option>
+                        <option value="2-meses">2 Meses</option>
+                        <option value="3-meses">3 Meses</option>
+                        <option value="indeterminado">Indeterminado</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="nivel-escolaridade">Nível de Escolaridade</label>
+                    <select id="nivel-escolaridade" name="nivel_escolaridade" required>
+                        <option value="">Escolha o nível</option>
+                        <option value="ensino-fundamental">Ensino Fundamental</option>
+                        <option value="ensino-medio">Ensino Médio</option>
+                        <option value="ensino-superior">Ensino Superior</option>
+                        <option value="pos-graduacao">Pós-Graduação</option>
+                        <option value="doutorado">Doutorado</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email-contato">E-mail de Contato</label>
+                    <input type="email" id="email-contato" name="email_contato" placeholder="Digite seu e-mail" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn">Anunciar Vaga</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="footer-content">
+        </div>
+    </footer>
+
+    <style>
+        /* Estilos para os detalhes do relatório */
+        .container {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        display: flex;
+        padding: 30px;
+        max-width: 700px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    .form-container h1 {
+        font-size: 26px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #333333;
+    }
+
+    .form-container p {
+        font-size: 15px;
+        color: #555555;
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        display: flex;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ced4da;
+        border-radius: 6px;
+        font-size: 15px;
+        color: #333333;
+        background-color: #f9f9f9;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+        border-color: #4A90E2;
+        outline: none;
+    }
+
+    .form-group textarea {
+        height: 120px;
+        resize: none;
+    }
+
+    .btn {
+        background-color: #4A90E2;
+        color: #ffffff;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        text-align: center;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #357ABD;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background-color: #f0f2f5;
+    }
+        
+    .navbar {
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 50px; 
+        background-color: #4A90E2;
+        z-index: 2;
+        width: 100%;
+        left: 0;
+        right: 0;
+        box-sizing: border-box;
+    }
+
+    .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1; 
+    }
+
+    .navbar a {
+        text-decoration: none;
+        color: #FFFFFF;
+        margin: 0 10px; 
+        font-weight: 600;
+    }
+
+    .navbar .logo {
+        font-size: 24px;
+        font-weight: 600;
+        color: white;
+        margin-right: 20px; 
+    }
+    </style>
+</body>
+</html>
+
+

@@ -63,15 +63,61 @@ Lavinia Maranhão
   </details>
 
   <details>
-    <summary>Entrega 3</summary>
-    <br>
-    <p><strong> Em construção...🔧🔨 </strong></p>
+   <summary>Entrega 3</summary>
+   <br>
+ <p><strong>Histórias Implementadas:</strong> A seleção de histórias implementadas na terceira entrega pode ser vista <a href="https://docs.google.com/document/d/1p4dzkl2WDimftVmF-tQC61QsBuUz4zVI2OSkEtJeIGc/edit?usp=sharing" target="_blank">neste link</a>.</p>
+<br>
+
+<p><strong>Protótipo de Lo Fi atualizado:</strong> O protótipo de baixa fidelidade pode ser visualizado <a href="https://www.figma.com/design/Qab1UVomdm80XcZu2h5VZ9/Storyboards?node-id=0-1&t=IPEg7XQTIVb3J7oF-1" target="_blank">neste link</a>. Um screencast do protótipo está disponível <a href="https://youtu.be/aZYobkuMKU0?si=7tv2awh5RyDd_h-d" target="_blank">neste link</a>.</p>
+<br>
+
+<p><strong>Sketches e storyboards para as novas histórias:</strong> Os materiais visuais, incluindo sketches e storyboards que acompanham as novas histórias, podem ser acessados <a href="https://www.canva.com/design/DAGUY6JBm5g/AIWOiv4j608n41KCZvP2QQ/edit?utm_content=DAGUY6JBm5g&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">neste link</a>.</p>
+<br>
+
+<p><strong>Deployment:</strong></p>
+<p>O site está em deploy e pode ser acessado <a href="https://conectapop2.azurewebsites.net/" target="_blank">aqui</a>. O screencast pode ser visto <a href="https://youtu.be/CNq7ECpMyog?si=RcHsw-V1p6XWwrwz" target="_blank">neste link</a>.</p>
+<br>
+
+<p><strong>Testes de Sistema Automatizados:</strong> Os testes de sistema automatizados foram realizados para garantir a qualidade do software. Um screencast da execução dos testes está disponível <a href="https://www.youtube.com/watch?v=lZ2I71Ppvuc" target="_blank">neste link</a>.</p>
+<br>
+
+<p><strong>Print do quadro e do Backlog:</strong></p>
+<br>
+<img width="917" alt="print sprint2 " src="https://github.com/user-attachments/assets/cf84084c-2191-4585-8814-32443799a503">
+<br>
+<img width="917" alt="Backlog" src="https://github.com/user-attachments/assets/a5b8cc46-b8ab-4ea8-84b6-00b72d26798b">
+
+
   </details>
   
   <details>
-    <summary>Entrega 4</summary>
-    <br>
-    <p><strong> Em construção...🔧🔨 </strong></p>
-  </details>
+  <summary>Entrega 4</summary>
+<br><br>
+  <p><strong>Seleção de mais histórias para implementar:</strong> As novas histórias selecionadas para implementação na entrega 4 podem ser visualizadas <a href="https://docs.google.com/document/d/1HWuvLXFULss48zR6Uta0mqvCHMdcz48Rpr2RtRuTsKk/edit?usp=sharing" target="_blank">aqui</a>.</p>
+  <br>
+
+  <p><strong>Protótipo de Lo Fi atualizado:</strong> O protótipo de baixa fidelidade foi atualizado e pode ser visualizado <a href="https://www.figma.com/design/Qab1UVomdm80XcZu2h5VZ9/Storyboards?node-id=0-1&t=IPEg7XQTIVb3J7oF-1" target="_blank">neste link</a>. Um screencast do protótipo atualizado está disponível <a href="https://youtu.be/aZYobkuMKU0?si=7tv2awh5RyDd_h-d" target="_blank">aqui</a>.</p>
+  <br>
+
+  <p><strong>Deployment:</strong> O site com as novas histórias está em deploy e pode ser acessado <a href="https://conectapop2.azurewebsites.net/" target="_blank">aqui</a>. O screencast do processo de deploy e execução das novas histórias está disponível <a href="https://youtu.be/CNq7ECpMyog?si=RcHsw-V1p6XWwrwz" target="_blank">neste link</a>.</p>
+  <br>
+
+  <p><strong>Uso do Issue/Bug Tracker:</strong> O tracker de problemas foi atualizado e pode ser acessado no repositório do GitHub. Print da tela do tracker abaixo:</p>
+  <img width="1249" alt="Captura de Tela 2024-11-10 às 21 51 50" src="https://github.com/user-attachments/assets/75a3d750-97a9-42c5-b2b5-5b5811982744">
+  <br> <br>
+
+  <p><strong>Testes de Sistema Automatizados:</strong> Os testes de sistema automatizados foram executados para garantir a qualidade do software. Um screencast da execução dos testes pode ser visto <a href="https://www.youtube.com/watch?v=lZ2I71Ppvuc" target="_blank">aqui</a>.</p>
+  <br>
+
+
+  <p><strong>CI/CD Pipeline:</strong> A pipeline de CI/CD foi criada no GitHub, com build, deployment e testes automatizados. O processo completo de build e deployment pode ser visualizado no screencast <a href="https://youtu.be/processo-build" target="_blank">aqui</a>.</p>
+  <br>
+
+  <p><strong>Quadro da Sprint 03 atualizado:</strong> O quadro da Sprint 03 foi atualizado e reflete a entrega atual. O print do quadro da sprint está abaixo:</p>
+  <img width="1137" alt="Captura de Tela 2024-11-10 às 21 53 40" src="https://github.com/user-attachments/assets/31ad0357-2cfb-44ba-8043-c187a2b90f9d">
+  <br> <br> 
+
+  <p><strong>Documentação:</strong> A documentação foi atualizada com as instruções necessárias para montar o ambiente corretamente e contribuir com o projeto. A documentação completa está disponível em <a href="https://github.com/user-attachments/CONTRIBUTING.md" target="_blank">CONTRIBUTING.md</a>.</p>
+</details>
 
 </details>

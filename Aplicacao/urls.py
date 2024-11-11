@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from .views import DocumentosProjetos
+from .views import StatusReformas
 
 app_name = 'Aplicacao'
 
@@ -15,9 +17,20 @@ urlpatterns = [
     path('deletar_relatorio/<int:relatorio_id>/', views.DeletarRelatorio.as_view(), name='deletar_relatorio'),
     path('alerta_seguranca/', views.alerta_seguranca, name='alerta_seguranca'),
     path('deletar_violacao/<int:id>/', views.deletar_violacao, name='deletar_violacao'),
+    path('documentos_projetos/', DocumentosProjetos.as_view(), name='documentos_projetos'),
+    path('status_reformas/', StatusReformas.as_view(), name='status_reformas'),
+    path('detalhes_relatorio/<int:relatorio_id>/', views.DetalhesRelatorio.as_view(), name='detalhes_relatorio'),
+    path('anunciar-vaga/', views.anunciar_vaga, name='anunciar_vaga'),
+    path('vagas-disponiveis/', views.vagas_disponiveis, name='vagas_disponiveis'),
+    path('avaliar-reformas/', views.AvaliarReformaView.as_view(), name='avaliar_reformas'),
+    path('detalhes-interesse/<int:interesse_id>/', views.detalhes_interesse, name='detalhes_interesse'),
+    
 ]
 
 urlpatterns += [
-    path('cleanup_db/', views.cleanup_db, name='cleanup_db'), # Rota de limpeza para o banco de dados!
+    path('cleanup_db/', views.cleanup_db, name='cleanup_db'), 
 ]
 
+urlpatterns += [
+    path('limpar_problemas/', views.limpar_problemas, name='limpar_problemas'),
+]

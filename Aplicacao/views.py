@@ -4,11 +4,14 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Relatar, Enquetes
-from .models import Relatorio
 from .models import Violacao
 from django.db.models import Q 
 from django.contrib.auth import authenticate, login as auth_login
 from django.http import JsonResponse
+from .models import Vaga
+from django.http import HttpResponse
+from .models import Relatorio, AvaliacaoReforma
+
 
 class HomeView(View):
     def get(self, request):
@@ -75,19 +78,16 @@ class enquetes(View):
 class atualizacoes(View):
     def get(self, request):
         endereco = request.GET.get('endereco')
-        mensagem = None  # Inicialize a mensagem como None
+        mensagem = None  
 
-        if endereco:  # Verifique se o endereço foi fornecido
+        if endereco:  
             problema = Relatar.objects.filter(endereco=endereco).first()
             
             if problema:
-                # Se houver um problema encontrado, renderiza a página com o problema.
                 return render(request, 'atualizacoes.html', {'problema': problema})
             else:
-                # Se não houver problema, define a mensagem.
                 mensagem = "O endereço informado não possui ocorrências de problemas."
 
-        # Renderiza a página com a mensagem apenas se o endereço foi fornecido
         return render(request, 'atualizacoes.html', {'mensagem': mensagem})
 
 
@@ -199,6 +199,101 @@ def deletar_violacao(request, id):
     violacao.delete()
     return redirect('Aplicacao:alerta_seguranca')
 
-def cleanup_db(request): #Deletando do banco de dados o teste da historia 1
+def cleanup_db(request):
     Relatar.objects.filter(titulo='Teste de Problema', cep='50080160').delete()
     return JsonResponse({'status': 'specific data cleaned'})
+
+def limpar_problemas(request):
+    endereco = request.GET.get('endereco', None)
+    if endereco:
+        Relatar.objects.filter(endereco=endereco).delete()
+        return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'no address provided'}, status=400)
+    
+class DocumentosProjetos(View):
+    def get(self, request):
+        return render(request, 'documentos_projetos.html')
+    
+class StatusReformas(View):
+    def get(self, request):
+        relatorios = Relatorio.objects.all()
+        return render(request, 'status_reformas.html', {'relatorios': relatorios})
+
+class DetalhesRelatorio(View):
+    def get(self, request, relatorio_id):
+        relatorio = get_object_or_404(Relatorio, id=relatorio_id)
+        return render(request, 'detalhes_relatorio.html', {'relatorio': relatorio})
+
+
+def anunciar_vaga(request):
+    if request.method == 'POST':
+        # Pega os dados diretamente do formulário
+        titulo_vaga = request.POST['titulo_vaga']
+        descricao_vaga = request.POST['descricao_vaga']
+        pretensao_salarial = request.POST['pretensao_salarial']
+        tempo_vaga = request.POST['tempo_vaga']
+        nivel_escolaridade = request.POST['nivel_escolaridade']
+        email_contato = request.POST['email_contato']
+
+        # Validação simples do e-mail
+        if '@' not in email_contato:
+            # Se o e-mail for inválido, exibe a mensagem de erro
+            return render(request, 'vagas_trabalho.html', {'error': 'E-mail inválido!'})
+        
+        # Cria e salva a vaga no banco de dados
+        vaga = Vaga.objects.create(
+            titulo_vaga=titulo_vaga,
+            descricao_vaga=descricao_vaga,
+            pretensao_salarial=pretensao_salarial,
+            tempo_vaga=tempo_vaga,
+            nivel_escolaridade=nivel_escolaridade,
+            email_contato=email_contato
+        )
+
+        # Exibe uma mensagem de sucesso ao criar a vaga
+        success_message = 'Sua vaga foi anunciada com sucesso!'
+
+        # Redireciona de volta com a mensagem de sucesso
+        return render(request, 'vagas_trabalho.html', {'success': success_message})
+
+    # Se o método for GET, renderiza o formulário vazio
+    return render(request, 'vagas_trabalho.html')
+
+def vagas_disponiveis(request):
+    vagas = Vaga.objects.all()
+    return render(request, 'vagas_disponiveis.html', {'vagas': vagas})
+
+class AvaliarReformaView(View):
+    def get(self, request):
+        # Buscar todos os relatórios de reforma com status em progresso ou concluída
+        relatorios = Relatorio.objects.filter(status__in=['em_progresso', 'concluido'])
+        return render(request, 'avaliacao_reformas.html', {'relatorios': relatorios})
+
+    def post(self, request):
+        # Obter as informações do formulário de avaliação
+        relatorio_id = request.POST.get('relatorio_id')
+        nota_andamento = request.POST.get('nota_andamento')  # Certifique-se de que o nome corresponde
+        justificativa = request.POST.get('justificativa')  # Certifique-se de que o nome corresponde
+
+        # Verifique se a justificativa (comentários) está sendo enviada corretamente
+        print(f"Justificativa recebida: {justificativa}")
+
+        try:
+            relatorio = Relatorio.objects.get(id=relatorio_id)
+
+            # Criar uma nova avaliação no modelo AvaliacaoReforma
+            avaliacao = AvaliacaoReforma(
+                relatorio=relatorio,
+                nota_andamento=nota_andamento,
+                justificativa=justificativa  # Passando os comentários corretamente
+            )
+            avaliacao.save()
+        except Relatorio.DoesNotExist:
+            pass  # Se o relatório não for encontrado, não faz nada.
+
+        return redirect('Aplicacao:avaliar_reformas')  # Redireciona para a página de avaliação de reformas
+    
+def detalhes_interesse(request, interesse_id):
+    vaga_interesse = get_object_or_404(Vaga, id=interesse_id)
+    return render(request, 'detalhes_interesse.html', {'vaga_interesse': vaga_interesse})
+

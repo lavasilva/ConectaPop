@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentos de Projetos</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+    <link rel="icon" href="iconecp.png" type="image/png">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <style>
+         .container {
+                 background-color: #ffffff;
+                 border-radius: 8px;
+                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                 display: flex;
+                 padding: 20px;
+                 max-width: 900px;
+                 width: 100%;
+                 margin: 0 auto;
+             }
+             .form-container {
+                 flex: 1;
+                 padding-right: 20px;
+             }
+             .form-container h1 {
+                 font-size: 24px;
+                 margin-bottom: 10px;
+                 color: #212529;
+             }
+             .form-container p {
+                 font-size: 16px;
+                 margin-bottom: 20px;
+                 color: #6c757d;
+             }
+             .form-group {
+                 display: flex;
+                 margin-bottom: 15px;
+             }
+             .form-group input, .form-group select, .form-group textarea {
+                 width: 100%;
+                 padding: 10px;
+                 border: 1px solid #ced4da;
+                 border-radius: 4px;
+                 font-size: 14px;
+                 color: #495057;
+             }
+             .form-group input[type="date"] {
+                 padding-right: 30px;
+             }
+             .form-group i {
+                 position: absolute;
+                 right: 10px;
+                 top: 50%;
+                 transform: translateY(-50%);
+                 color: #6c757d;
+             }
+             .form-group.half {
+                 width: 48%;
+             }
+             .form-group.half + .form-group.half {
+                 margin-left: 4%;
+             }
+             .form-group textarea {
+                 height: 100px;
+                 resize: none;
+             }
+             .btn {
+                 background-color: #4A90E2;
+                 color: #ffffff;
+                 padding: 10px 20px;
+                 border: none;
+                 border-radius: 4px;
+                 font-size: 16px;
+                 cursor: pointer;
+                 display: block;
+                 width: 100%;
+                 text-align: center;
+             }
+             .image-container {
+                 flex: 1;
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+             }
+             .image-container img {
+                 max-width: 100%;
+                 border-radius: 8px;
+             }
+             .navbar {
+    position: fixed; /* Fixa a navbar no topo da página */
+    display: flex; /* Utiliza flexbox para layout dos itens */
+    justify-content: space-between; /* Distribui o espaço entre os itens */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    padding: 20px 50px; /* Define o padding da navbar */
+    background-color: #4A90E2; /* Cor de fundo azul */
+    z-index: 2; /* Garante que fique sobre outros elementos */
+    width: 100%; /* Ocupa 100% da largura da tela */
+    left: 0; /* Garante que comece do lado esquerdo da tela */
+    right: 0; /* Garante que termine no lado direito da tela */
+    box-sizing: border-box; /* Inclui padding na largura total da navbar */
+}
+
+.navbar-container {
+    display: flex; /* Utiliza flexbox para organizar os itens */
+    justify-content: space-between; /* Distribui espaço entre os itens */
+    align-items: center; /* Alinha os itens verticalmente */
+    width: 100%; /* Ocupa 100% da área disponível */
+    max-width: 1200px; /* Limita a largura máxima a 1200px em telas maiores */
+    margin: 0 auto; /* Centraliza a navbar em telas grandes */
+    box-sizing: border-box; /* Inclui o padding dentro da largura do contêiner */
+}
+
+.nav-links {
+    display: flex; /* Utiliza flexbox para os links */
+    justify-content: space-between; /* Espaçamento igual entre os links */
+    align-items: center; /* Alinha os links verticalmente */
+    width: 100%; /* Ocupa toda a largura da navbar */
+}
+
+.navbar a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: #FFFFFF; /* Cor branca para os links */
+    margin: 0 15px; /* Espaço entre os links */
+    font-weight: 600; /* Peso da fonte */
+}
+
+.navbar .logo {
+    font-size: 24px; /* Tamanho da fonte do logo */
+    font-weight: 600; /* Peso da fonte do logo */
+    color: white; /* Cor do logo */
+    margin-right: 60px; /* Espaço à direita do logo */
+}
+
+.navbar .contact-btn {
+    background-color: #F5A623; /* Cor laranja do botão */
+    color: white; /* Cor do texto do botão */
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    border-radius: 25px; /* Bordas arredondadas */
+    border: none; /* Remove borda padrão */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    margin-left: 10px; /* Espaço à esquerda do botão */
+    white-space: nowrap; /* Evita quebra de linha no botão */
+}
+.form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #212529;
+        }
+        .form-group input[type="text"],
+        .form-group textarea, 
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #495057;
+            box-sizing: border-box; /* Para incluir padding e border no cálculo da largura */
+            resize: none; /* Para desabilitar o redimensionamento em textareas */
+        }
+        .form-group input[type="text"] {
+            height: 40px; /* Altura do input de texto */
+        }
+        .form-group textarea {
+            height: 80px; /* Altura para outros textos */
+        }
+        .form-group input[type="date"] {
+            padding-right: 30px;
+        }
+        
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ced4da;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #4A90E2;
+            color: #ffffff;
+        }
+        details {
+            margin: 10px 0;
+        }
+        summary {
+            cursor: pointer;
+            background-color: #F5A623;
+            color: #ffffff;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        .info {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            background-color: #ffffff;
+        }
+        .dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    color: #4A4A4A; /* Cinza Escuro */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #4A4A4A; /* Cinza Escuro */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #F5F7FA; /* Cinza Claro */
+}
+
+.auth-links {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.auth-links a {
+    margin: 0 10px;
+    font-weight: 600;
+    color: #FFFFFF; /* Branco para contraste */
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'Aplicacao:home_adm' %}">
+            <div class="logo">ConectaPop</div>
+        </a>
+        <div class="nav-links">
+            <div class="dropdown">
+                <a href="#">Status das Reformas</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'Aplicacao:relatorio_progresso' %}">Relatórios de Progresso</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Projetos e Oportunidades</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'Aplicacao:oportunidade_projetos' %}">Oportunidades de Projetos</a>
+                    <a href="{% url 'Aplicacao:documentos_projetos' %}">Documentos de Projetos</a>
+                </div>
+            </div>
+            <div class="auth-links">
+                <a href="{% url 'Aplicacao:home' %}" class="register-btn">Logout</a>
+            </div>
+        </div>
+    </div>
+    </div>    
+    <BR><BR><br><br><br>
+        <div class="container">
+            <div class="left-section">
+                <h1>Documentos de Projetos</h1>
+                <p>Aqui você pode visualizar e baixar documentos relacionados às reformas.</p>
+        
+                <ul class="document-list">
+                    <li>
+                        <span>Reforma da Rua Central - Versão 2.1</span>
+                        <br>
+                        <span class="permissions">Permissão: Somente leitura</span>
+                        <br>
+                        <a href="documentos/reforma-rua-central-v2.1.pdf" class="button" download>Baixar PDF</a><br><br>
+                    </li>
+                    <li>
+                        <span>Projeto de Ampliação - Versão 1.5</span>
+                        <br>
+                        <span class="permissions">Permissão: Edição permitida</span>
+                        <br>
+                        <a href="documentos/projeto-ampliacao-v1.5.docx" class="button" download>Baixar DOC</a><br><br>
+                    </li>
+                    <li>
+                        <span>Projeto de Extensão das Vias - Versão 1.1</span>
+                        <br>
+                        <span class="permissions">Permissão: Edição permitida</span>
+                        <br>
+                        <a href="documentos/projeto-extensao-v1.1.docx" class="button" download>Baixar DOC</a><br><br>
+                    </li>
+                    <li>
+                        <span>Reforma de Buracos nas Vias - Versão 4.8</span>
+                        <br>
+                        <span class="permissions">Permissão: Somente leitura</span>
+                        <br>
+                        <a href="documentos/reforma-buracos-vias-v4.8.pdf" class="button" download>Baixar PDF</a><br><br>
+                    </li>
+                </ul>
+                <br><br><br><br><br>
+                    <div class="left-section">
+                <h1>Administração de Recursos</h1>
+                <p>Veja a obra para ver os detalhes de alocação de recursos, materiais utilizados e status. </p>
+                        <div class="project-details">
+                            <div class="project">
+                                <h3>Obra 1 - Escola Municipal</h3>
+                                <p><strong>Recursos Alocados:</strong> Cimento, Tijolos, Areia, etc.</p>
+                                <p><strong>Quantidade Utilizada:</strong> 50%</p>
+                                <p><strong>Quantidade Restante:</strong> 50%</p>
+                                <p><strong>Aplicação:</strong> Construção de salas de aula e quadras esportivas.</p>
+                                <p><strong>Localização:</strong> Rua das Flores, Bairro Jardim.</p>
+                            </div>
+                        </div>
+                
+                        
+                        <div class="project-details">
+                            <div class="project">
+                                <h3>Obra 2 - Hospital Central</h3>
+                                <p><strong>Recursos Alocados:</strong> Concreto, Aço, Equipamentos médicos, etc.</p>
+                                <p><strong>Quantidade Utilizada:</strong> 30%</p>
+                                <p><strong>Quantidade Restante:</strong> 70%</p>
+                                <p><strong>Aplicação:</strong> Estrutura de emergência e salas de atendimento.</p>
+                                <p><strong>Localização:</strong> Avenida Principal, Centro.</p>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <div class="project">
+                                <h3>Obra 3 - Biblioteca Pública</h3>
+                                <p><strong>Recursos Alocados:</strong> Madeira, Concreto, Livros, etc.</p>
+                                <p><strong>Quantidade Utilizada:</strong> 70%</p>
+                                <p><strong>Quantidade Restante:</strong> 30%</p>
+                                <p><strong>Aplicação:</strong> Estantes, salas de leitura e áreas de estudo.</p>
+                                <p><strong>Localização:</strong> Rua dos Estudantes, Bairro Universitário.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            </body>
+            </html>

@@ -115,22 +115,26 @@
                 <div class="dropdown-content">
                     <a href="{% url 'Aplicacao:relatar_problemas' %}">Relatar Problemas</a>
                     <a href="{% url 'Aplicacao:atualizacoes' %}">Atualizações para Moradores</a>
+                    <a href="{% url 'Aplicacao:vagas_disponiveis' %}">Vagas Disponíveis</a>
                 </div>
             </div>
-
+    
             <div class="dropdown">
                 <a href="#">Opinião da Comunidade</a>
                 <div class="dropdown-content">
                     <a href="{% url 'Aplicacao:enquetes' %}">Participar de Enquetes e Sugestões</a>
                 </div>
             </div>
+    
             <div class="dropdown">
-                <a href="#">Mapa e Segurança</a>
+                <a href="#">Status de Reformas</a>
                 <div class="dropdown-content">
-                    <a href="mapa-reformas.html">Mapa de Reformas e ver reformas</a>
+                    <a href="{% url 'Aplicacao:status_reformas' %}">Verificar reformas</a>
+                    <a href="{% url 'Aplicacao:avaliar_reformas' %}">Avaliar reformas</a> <!-- Adicionada a opção "Avaliar reformas" -->
                     <a href="{% url 'Aplicacao:alerta_seguranca' %}">Alertas de Segurança</a>
                 </div>
             </div>
+    
             <div class="auth-links">
                 <a href="{% url 'Aplicacao:registro' %}" class="register-btn">Registrar como ADM</a>
                 <a href="{% url 'Aplicacao:login' %}" class="login-btn">Login como ADM</a>

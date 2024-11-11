@@ -11,276 +11,172 @@
     <link rel="stylesheet" href="{% static 'home.css' %}">
     <style>
         /* Estilos existentes mantidos */
-        .container {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            padding: 20px;
-            max-width: 900px;
-            width: 100%;
-            margin: 0 auto;
-        }
-        .form-container {
-            flex: 1;
-            padding-right: 20px;
-        }
-        .btn {
-            background-color: #4A90E2;
-            color: #ffffff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            display: block;
-            width: 100%;
-            text-align: center;
-        }
-        /* Estilos para o histórico de violações */
-        .historico-container {
-            margin-top: 20px;
-            padding: 15px;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-            background-color: #f8f9fa;
-        }
-        .historico-item {
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #ffffff;
-        }
-        h4 {
-            margin: 5px 0;
-        }
         body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #F5F7FA; 
-        }
-        .navbar {
-            position: fixed;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 50px; 
-            background-color: #4A90E2;
-            z-index: 2;
-            width: 100%;
-        }
-        .navbar a {
-            text-decoration: none;
-            color: #FFFFFF;
-            margin: 0 10px; 
-            font-weight: 600;
-        
-        }
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #F5F7FA;
+}
 
-        /* Estilos existentes mantidos */
-        .container {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            padding: 20px;
-            max-width: 900px;
-            width: 100%;
-            margin: 0 auto;
-        }
-        .form-container {
-            flex: 1;
-            padding-right: 20px;
-        }
-        .btn {
-            background-color: #4A90E2;
-            color: #ffffff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            display: block;
-            width: 100%;
-            text-align: center;
-        }
-        /* Estilos para o histórico de violações */
-        .historico-container {
-            margin-top: 20px;
-            padding: 15px;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-            background-color: #f8f9fa;
-        }
-        .historico-item {
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #ffffff;
-        }
-        h4 {
-            margin: 5px 0;
-        }
-        .container {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            padding: 20px;
-            max-width: 900px;
-            width: 100%;
-            margin: 0 auto;
-        }
-        .form-container {
-            flex: 1;
-            padding-right: 20px;
-        }
-        .form-container h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #212529;
-        }
-        .form-container p {
-            font-size: 16px;
-            margin-bottom: 20px;
-            color: #6c757d;
-        }
-        .form-group {
-            display: flex;
-            margin-bottom: 15px;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ced4da;
-            border-radius: 4px;
-            font-size: 14px;
-            color: #495057;
-        }
-        .btn {
-            background-color: #4A90E2;
-            color: #ffffff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            display: block;
-            width: 100%;
-            text-align: center;
-        }
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #F5F7FA; 
-        }
-        .navbar {
-            position: fixed;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 50px; 
-            background-color: #4A90E2;
-            z-index: 2;
-            width: 100%;
-        }
-        .navbar a {
-            text-decoration: none;
-            color: #FFFFFF;
-            margin: 0 10px; 
-            font-weight: 600;
-        }
-        .reformas-ativas-container {
-            margin-top: 20px;
-        }
-        body {
-                margin: 0;
-                font-family: 'Poppins', sans-serif;
-                background-color: #F5F7FA; 
-            }
-        
-            .navbar {
-                position: fixed;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 10px 50px; 
-                background-color: #4A90E2;
-                z-index: 2;
-                width: 100%;
-                left: 0;
-                right: 0;
-                box-sizing: border-box;
-            }
-        
-            .navbar-container {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-                max-width: 1200px;
-                margin: 0 auto;
-                box-sizing: border-box;
-            }
-        
-            .nav-links {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-grow: 1; 
-            }
-        
-            .navbar a {
-                text-decoration: none;
-                color: #FFFFFF;
-                margin: 0 10px; 
-                font-weight: 600;
-            }
-        
-            .navbar .logo {
-                font-size: 24px;
-                font-weight: 600;
-                color: white;
-                margin-right: 20px; 
-            }
-        
-            .navbar .contact-btn {
-                background-color: #F5A623;
-                color: white;
-                padding: 10px 20px;
-                border-radius: 25px;
-                border: none;
-                cursor: pointer;
-                margin-left: 10px;
-                white-space: nowrap;
-            }
-        
-            .dropdown {
-                position: relative;
-            }
-        
-            .dropdown-content {
-                display: none;
-                position: absolute;
-                background-color: white;
-                color: #4A4A4A;
-                min-width: 160px;
-                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-                z-index: 1;
-            }
-        
-            .dropdown:hover .dropdown-content {
-                display: block;
-            }
-        
-            .dropdown-content a {
-                color: #4A4A4A;
-                padding: 12px 16px;
-                text-decoration: none;
-                display: block;
-            }
+.container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    padding: 20px;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form-container {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.form-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #212529;
+}
+
+.form-container p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #6c757d;
+}
+
+.form-group {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #495057;
+}
+
+.btn {
+    background-color: #4A90E2;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.historico-container {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+.historico-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+h4 {
+    margin: 5px 0;
+}
+
+.navbar {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: #4A90E2;
+    z-index: 2;
+    width: 100%;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #FFFFFF;
+    margin: 0 10px;
+    font-weight: 600;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    margin-right: 20px;
+}
+
+.navbar .contact-btn {
+    background-color: #F5A623;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    color: #4A4A4A;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #4A4A4A;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.reformas-ativas-container {
+    margin-top: 20px;
+}
+
 
 
     </style>
@@ -296,21 +192,26 @@
                 <div class="dropdown-content">
                     <a href="{% url 'Aplicacao:relatar_problemas' %}">Relatar Problemas</a>
                     <a href="{% url 'Aplicacao:atualizacoes' %}">Atualizações para Moradores</a>
+                    <a href="{% url 'Aplicacao:vagas_disponiveis' %}">Vagas Disponíveis</a>
                 </div>
             </div>
+    
             <div class="dropdown">
                 <a href="#">Opinião da Comunidade</a>
                 <div class="dropdown-content">
                     <a href="{% url 'Aplicacao:enquetes' %}">Participar de Enquetes e Sugestões</a>
                 </div>
             </div>
+    
             <div class="dropdown">
-                <a href="#">Mapa e Segurança</a>
+                <a href="#">Status de Reformas</a>
                 <div class="dropdown-content">
-                    <a href="mapa-reformas.html">Mapa de Reformas e ver reformas</a>
+                    <a href="{% url 'Aplicacao:status_reformas' %}">Verificar reformas</a>
+                    <a href="{% url 'Aplicacao:avaliar_reformas' %}">Avaliar reformas</a> <!-- Adicionada a opção "Avaliar reformas" -->
                     <a href="{% url 'Aplicacao:alerta_seguranca' %}">Alertas de Segurança</a>
                 </div>
             </div>
+    
             <div class="auth-links">
                 <a href="{% url 'Aplicacao:registro' %}" class="register-btn">Registrar como ADM</a>
                 <a href="{% url 'Aplicacao:login' %}" class="login-btn">Login como ADM</a>
