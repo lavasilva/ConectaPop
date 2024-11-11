@@ -96,7 +96,7 @@ Lavinia Maranhão
   <p><strong>Seleção de mais histórias para implementar:</strong> As novas histórias selecionadas para implementação na entrega 4 podem ser visualizadas <a href="https://docs.google.com/document/d/1HWuvLXFULss48zR6Uta0mqvCHMdcz48Rpr2RtRuTsKk/edit?usp=sharing" target="_blank">aqui</a>.</p>
   <br>
 
-  <p><strong>Protótipo de Lo Fi atualizado:</strong> O protótipo de baixa fidelidade foi atualizado e pode ser visualizado <a href="https://www.figma.com/design/Qab1UVomdm80XcZu2h5VZ9/Storyboards?node-id=0-1&t=IPEg7XQTIVb3J7oF-1" target="_blank">neste link</a>. Um screencast do protótipo atualizado está disponível <a href="https://youtu.be/aZYobkuMKU0?si=7tv2awh5RyDd_h-d" target="_blank">aqui</a>.</p>
+  <p><strong>Protótipo de Lo Fi atualizado:</strong> O protótipo de baixa fidelidade foi atualizado e pode ser visualizado <a href="https://www.figma.com/design/Qab1UVomdm80XcZu2h5VZ9/Storyboards?node-id=0-1&t=IPEg7XQTIVb3J7oF-1" target="_blank">neste link</a>. Um screencast do protótipo atualizado está disponível <a href="https://youtu.be/Wt4qu2Xw5JY?si=NSE4LY_c5gx2kan3" target="_blank">aqui</a>.</p>
   <br>
 
   <p><strong>Deployment:</strong> O site com as novas histórias está em deploy e pode ser acessado <a href="https://conectapop2.azurewebsites.net/" target="_blank">aqui</a>. O screencast do processo de deploy e execução das novas histórias está disponível <a href="https://youtu.be/CNq7ECpMyog?si=RcHsw-V1p6XWwrwz" target="_blank">neste link</a>.</p>
@@ -106,7 +106,7 @@ Lavinia Maranhão
   <img width="1249" alt="Captura de Tela 2024-11-10 às 21 51 50" src="https://github.com/user-attachments/assets/75a3d750-97a9-42c5-b2b5-5b5811982744">
   <br> <br>
 
-  <p><strong>Testes de Sistema Automatizados:</strong> Os testes de sistema automatizados foram executados para garantir a qualidade do software. Um screencast da execução dos testes pode ser visto <a href="https://www.youtube.com/watch?v=lZ2I71Ppvuc" target="_blank">aqui</a>.</p>
+  <p><strong>Testes de Sistema Automatizados:</strong> Os testes de sistema automatizados foram executados para garantir a qualidade do software. Um screencast da execução dos testes pode ser visto <a href="https://youtu.be/SbIHF86M5u0?si=ZITPy8T4i2uXENpV" target="_blank">aqui</a>.</p>
   <br>
 
 
