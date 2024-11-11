@@ -8,7 +8,7 @@ describe('Teste de atualização de situacao', () => {
         cy.get('#endereco').type('Rua exemplo, 123');
         cy.get('form > .btn').click();
         cy.wait(3000);
-        cy.get(':nth-child(9) > .btn').click();
+        cy.get('form > .btn');    
     });
 
     it('cenario2 - o usuário procurara por uma obra que não existe', () => {
@@ -23,10 +23,9 @@ describe('Teste de atualização de situacao', () => {
     });
 
     it('cenario3 - o usuário procurará, não encontrará, vai cadastrar e buscar novamente', () => {
-        // Limpa os dados relacionados ao endereço antes de iniciar o cenário 3
         cy.request('GET', 'http://127.0.0.1:8000/limpar_problemas/?endereco=Rua%20do%20Problema%20X')
             .then((response) => {
-                expect(response.status).to.eq(200); // Verifica se a limpeza foi bem-sucedida
+                expect(response.status).to.eq(200); 
             });
 
         cy.visit('http://127.0.0.1:8000/');
@@ -54,7 +53,6 @@ describe('Teste de atualização de situacao', () => {
         cy.get('#endereco').type('Rua do Problema X');
         cy.get('form > .btn').click();
         cy.wait(3000);
-        cy.get(':nth-child(9) > .btn').click();
     });
 
 });
