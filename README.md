@@ -99,7 +99,7 @@ Lavinia Maranhão
   <p><strong>Protótipo de Lo Fi atualizado:</strong> O protótipo de baixa fidelidade foi atualizado e pode ser visualizado <a href="https://www.figma.com/design/Qab1UVomdm80XcZu2h5VZ9/Storyboards?node-id=0-1&t=IPEg7XQTIVb3J7oF-1" target="_blank">neste link</a>. Um screencast do protótipo atualizado está disponível <a href="https://youtu.be/Wt4qu2Xw5JY?si=NSE4LY_c5gx2kan3" target="_blank">aqui</a>.</p>
   <br>
 
-  <p><strong>Deployment:</strong> O site com as novas histórias está em deploy e pode ser acessado <a href="https://conectapop2.azurewebsites.net/" target="_blank">aqui</a>. O screencast do processo de deploy e execução das novas histórias está disponível <a href="https://youtu.be/CNq7ECpMyog?si=RcHsw-V1p6XWwrwz" target="_blank">neste link</a>.</p>
+  <p><strong>Deployment:</strong> O site com as novas histórias está em deploy e pode ser acessado <a href="https://conectapop2.azurewebsites.net/" target="_blank">aqui</a>. O screencast do processo de deploy e execução das novas histórias está disponível <a href="https://youtu.be/VbfG3OVwuOQ" target="_blank">neste link</a>.</p>
   <br>
 
   <p><strong>Uso do Issue/Bug Tracker:</strong> O tracker de problemas foi atualizado e pode ser acessado no repositório do GitHub. Print da tela do tracker abaixo:</p>
@@ -110,7 +110,7 @@ Lavinia Maranhão
   <br>
 
 
-  <p><strong>CI/CD Pipeline:</strong> A pipeline de CI/CD foi criada no GitHub, com build, deployment e testes automatizados. O processo completo de build e deployment pode ser visualizado no screencast <a href="https://youtu.be/processo-build" target="_blank">aqui</a>.</p>
+  <p><strong>CI/CD Pipeline:</strong> A pipeline de CI/CD foi criada no GitHub, com build, deployment e testes automatizados. O processo completo de build e deployment pode ser visualizado no screencast <a href="https://youtu.be/qD0cO_Qfzgo" target="_blank">aqui</a>.</p>
   <br>
 
   <p><strong>Quadro da Sprint 03 atualizado:</strong> O quadro da Sprint 03 foi atualizado e reflete a entrega atual. O print do quadro da sprint está abaixo:</p>
